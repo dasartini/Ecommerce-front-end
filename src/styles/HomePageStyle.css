@@ -1,0 +1,30 @@
+
+.coffeeVideo{
+    position: absolute;
+    z-index: -1000;
+    height: 150vh;
+
+}
+
+.firstDiv {
+    min-height:500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    padding: 0 1rem;
+    margin-top: -3rem ;
+  }
+
+.homeButton{
+    font-weight: 60;
+    cursor: pointer;
+    background-color:#DA723C ;
+    border: none;
+    height: 2rem;
+    border-radius: 5%;
+}
+.homeButton:hover{
+    background-color:#F43016 ;
+}
