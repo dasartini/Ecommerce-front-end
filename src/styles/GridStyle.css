@@ -1,10 +1,9 @@
 
 .allProducts{
-  position: relative;
-  top:6rem;
+   top:6rem;
 }
 .product-grid {
-  z-index: -100;
+    z-index: -100;
 
     margin-left: 15rem;
     display: grid;
