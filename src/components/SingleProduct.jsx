@@ -2,33 +2,52 @@ import React, { useEffect, useState } from "react";
 import { getProductById } from "../../api";
 import { useParams } from "react-router";
 import SingleProductStyle from "../styles/SingleProductStyle";
+import { useBasketContext } from "../contexts/BasketContext";
 
 export default function SingleProduct() {
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [quantity, setQuantity] = useState(1); // Quantity state
+  const [product, setProduct] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [productQuantity, setProductQuantity] = useState(1)
+ const {setQuantity, quantity, currentBasket, setCurrentBasket} = useBasketContext()
 
-  const { id } = useParams();
+  const { id } = useParams()
 
   useEffect(() => {
-    setLoading(true);
+    console.log(currentBasket)
+    setLoading(true)
     getProductById(id)
       .then((data) => {
-        setProduct(data);
-        setLoading(false);
+        setProduct(data)
+        setLoading(false)
       })
       .catch((err) => {
-        console.log(err);
-      });
-  }, [id]);
+        console.log(err)
+      })
+  }, [id])
 
-  const incrementQuantity = () => setQuantity((prev) => prev + 1);
+  const addToBasket = () => {
+    const existingItem = currentBasket.find(item => item.id === product.id)
 
-  const decrementQuantity = () => {
-    if (quantity > 1) setQuantity((prev) => prev - 1);
+  let updatedBasket
+  if (existingItem) {
+    updatedBasket = currentBasket.map(item =>
+      item.id === product.id ? { ...item, quantity: item.quantity + productQuantity } : item
+    )
+  } else {
+    updatedBasket = [...currentBasket, { ...product, quantity: productQuantity }]
+  }
+
+  setCurrentBasket(updatedBasket)
+  const totalQuantity = updatedBasket.reduce((sum, item) => sum + item.quantity, 0);
+  setQuantity(totalQuantity);
+  };
+  const incrementProductQuantity = () => setProductQuantity((prev) => prev + 1)
+
+  const decrementProductQuantity = () => {
+    if (productQuantity > 1) setProductQuantity((prev) => prev - 1)
   };
 
-  if (loading) return <div>Loading product...</div>;
+  if (loading) return <div>Loading product...</div>
 
   return (
     <SingleProductStyle>
@@ -38,20 +57,19 @@ export default function SingleProduct() {
           <h2>{product.name}</h2>
           <h3>£{product.price}</h3>
 
-          {/* Counter Section */}
           <div className="counterContainer">
-            <button className="counterButton" onClick={decrementQuantity}>
+            <button className="counterButton" onClick={decrementProductQuantity}>
               -
             </button>
-            <span className="quantity">{quantity}</span>
-            <button className="counterButton" onClick={incrementQuantity}>
+            <span className="ProductQuantity">{productQuantity}</span>
+            <button className="counterButton" onClick={incrementProductQuantity}>
               +
             </button>
           </div>
 
-          <button className="addToCartButton">Add {quantity} to Cart</button>
+          <button className="addToCartButton" on onClick={addToBasket}>Add {productQuantity} to Cart</button>
         </div>
       </div>
     </SingleProductStyle>
-  );
+  )
 }
