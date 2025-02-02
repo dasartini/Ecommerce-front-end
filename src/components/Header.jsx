@@ -19,9 +19,11 @@ export default function Header() {
     </div>
 
    </div>
+   <Link to={"/basket"}>
    <div className="shoppingBasket">
 <img className="basket" src={basket}/> {quantity}
    </div>
+   </Link>
    </div>
     </header>
     </HeaderStyle>

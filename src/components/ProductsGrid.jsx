@@ -55,7 +55,7 @@ export default function ProductsGrid() {
     }
   }, [selectedCategory, products])
 
-  if (loading) return <div>Loading products...</div>
+
   if (error) return <div>Error: {error}</div>
 
   return (

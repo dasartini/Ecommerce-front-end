@@ -17,8 +17,10 @@ export default function SingleProduct() {
     setLoading(true)
     getProductById(id)
       .then((data) => {
+        
         setProduct(data)
         setLoading(false)
+        console.log(product)
       })
       .catch((err) => {
         console.log(err)
@@ -41,6 +43,8 @@ export default function SingleProduct() {
   const totalQuantity = updatedBasket.reduce((sum, item) => sum + item.quantity, 0);
   setQuantity(totalQuantity);
   };
+
+
   const incrementProductQuantity = () => setProductQuantity((prev) => prev + 1)
 
   const decrementProductQuantity = () => {
