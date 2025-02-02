@@ -1,7 +1,7 @@
 
 .allProducts{
   position: relative;
-  top:8rem;
+  top:6rem;
 }
 .product-grid {
   z-index: -100;

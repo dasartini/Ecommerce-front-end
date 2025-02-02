@@ -3,7 +3,7 @@ import Design from "./Design"
 export default function HomePage() {
   return (
     <HomePageStyle>
-<Design/>
+     <Design/>
 
       </HomePageStyle>
   )

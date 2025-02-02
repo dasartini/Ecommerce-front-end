@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { allProducts, getCategories } from '../../api';
 import GridStyle from '../styles/GridStyle';
+import { Link } from 'react-router';
 
 export default function ProductsGrid() {
   const [products, setProducts] = useState([]);
@@ -43,7 +44,6 @@ export default function ProductsGrid() {
     setFilteredProducts(sortedProducts);
   }, [sortOption]);
 
-  // Handle category filtering
   useEffect(() => {
     if (selectedCategory) {
       const filtered = products.filter(
@@ -89,6 +89,7 @@ export default function ProductsGrid() {
 
       <div className="product-grid">
         {filteredProducts.map((product) => (
+          <Link to={`/shop/${product.id}`}>
           <div key={product.id} className="product-card">
             <img
               className="product-image"
@@ -99,6 +100,7 @@ export default function ProductsGrid() {
             <p className="product-price">£{product.price}</p>
             <button className="product-button">Add to Cart</button>
           </div>
+          </Link>
         ))}
       </div>
       </div>

@@ -6,7 +6,6 @@ export default function AllProducts() {
 
   return (
     <div>
-  
     <ProductsGrid/>
     </div>
   )
