@@ -1,6 +1,12 @@
+
+.mainHeaderContainer{
+    position:-webkit-sticky;
+}
 header{
+    min-width: 100%;
     background-color: #F43016;
     height: 7rem;
+    z-index: 100;
 }
 
 .logo{
