@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const allProducts = () =>{
 
-    return axios.get("http://localhost:4000/products")
+    return axios.get("http://localhost:5000/products")
     .then((data)=>{
        return data.data
     })
@@ -14,7 +14,7 @@ export const allProducts = () =>{
 
 export const getCategories = () =>{
 
-    return axios.get("http://localhost:4000/categories")
+    return axios.get("http://localhost:5000/categories")
     .then((data)=>{
         return data.data
     })
@@ -25,7 +25,7 @@ export const getCategories = () =>{
 }
 
 export const getProductById = (id) =>{
-    return axios.get(`http://localhost:4000/products/${id}`)
+    return axios.get(`http://localhost:5000/products/${id}`)
     .then((data)=>{
         return data.data
     }) .catch((err)=>{

@@ -1,0 +1,80 @@
+
+
+.basket-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #000000;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .basket-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .basket-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .product-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1rem;
+  }
+
+  .product-details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .divider {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 1.5rem 0;
+  }
+
+  .basket-total {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .clear-basket-btn {
+    background-color: #f43016;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .clear-basket-btn:hover {
+    background-color: #cc2e13;
+  }
+
+  .remove-item-btn {
+    position: relative;
+    right: 1px;
+    top:-1.8rem;
+    background: none;
+    border: none;
+    color: #f43016;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 0;
+    transition: color 0.2s;
+  }
+  
+  .remove-item-btn:hover {
+    color: #d41703;
+  }

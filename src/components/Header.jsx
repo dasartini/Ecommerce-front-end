@@ -2,8 +2,10 @@ import HeaderStyle from "../styles/HeaderStyle";
 import logo from "../assets/logo.png"
 import basket from "../assets/basket.svg"
 import { Link } from "react-router";
+import { useBasketContext } from "../contexts/BasketContext";
 
 export default function Header() {
+  const {quantity} = useBasketContext()
   return (
     <HeaderStyle>
     <header>
@@ -17,9 +19,11 @@ export default function Header() {
     </div>
 
    </div>
+   <Link to={"/basket"}>
    <div className="shoppingBasket">
-<img className="basket" src={basket}/>
+<img className="basket" src={basket}/> {quantity}
    </div>
+   </Link>
    </div>
     </header>
     </HeaderStyle>

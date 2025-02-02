@@ -4,59 +4,59 @@ import GridStyle from '../styles/GridStyle';
 import { Link } from 'react-router';
 
 export default function ProductsGrid() {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [sortOption, setSortOption] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [products, setProducts] = useState([])
+  const [filteredProducts, setFilteredProducts] = useState([])
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [sortOption, setSortOption] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState("")
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const productData = await allProducts();
-        const categoryData = await getCategories();
+        const productData = await allProducts()
+        const categoryData = await getCategories()
 
-        setProducts(productData);
-        setFilteredProducts(productData);
-        setCategories(categoryData);
+        setProducts(productData)
+        setFilteredProducts(productData)
+        setCategories(categoryData)
       } catch (err) {
-        setError(err.message);
+        setError(err.message)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
     }
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   useEffect(() => {
-    let sortedProducts = [...filteredProducts];
+    let sortedProducts = [...filteredProducts]
 
     if (sortOption === "price-asc") {
-      sortedProducts.sort((a, b) => a.price - b.price);
+      sortedProducts.sort((a, b) => a.price - b.price)
     } else if (sortOption === "price-desc") {
-      sortedProducts.sort((a, b) => b.price - a.price);
+      sortedProducts.sort((a, b) => b.price - a.price)
     } else if (sortOption === "alphabetical") {
-      sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+      sortedProducts.sort((a, b) => a.name.localeCompare(b.name))
     }
 
-    setFilteredProducts(sortedProducts);
-  }, [sortOption]);
+    setFilteredProducts(sortedProducts)
+  }, [sortOption])
 
   useEffect(() => {
     if (selectedCategory) {
       const filtered = products.filter(
         (product) => product.category_id === parseInt(selectedCategory)
-      );
-      setFilteredProducts(filtered);
+      )
+      setFilteredProducts(filtered)
     } else {
-      setFilteredProducts(products);
+      setFilteredProducts(products)
     }
-  }, [selectedCategory, products]);
+  }, [selectedCategory, products])
 
-  if (loading) return <div>Loading products...</div>;
-  if (error) return <div>Error: {error}</div>;
+
+  if (error) return <div>Error: {error}</div>
 
   return (
     <GridStyle>
@@ -105,5 +105,5 @@ export default function ProductsGrid() {
       </div>
       </div>
     </GridStyle>
-  );
+  )
 }
