@@ -32,7 +32,7 @@ export default function Basket() {
                   <img
                     src={item.image_url}
                     alt={item.name}
-                    className="product-image"
+                    className="productThumbnail"
                   />
                   <div className="product-details">
                     <h3>{item.name}</h3>

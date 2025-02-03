@@ -61,6 +61,7 @@ export default function ProductsGrid() {
   return (
     <GridStyle>
 <div className='allProducts'>
+  <div className='controlsWrapper'>
       <div className="controls">
         <select
           className="dropdown"
@@ -85,6 +86,7 @@ export default function ProductsGrid() {
             </option>
           ))}
         </select>
+      </div>
       </div>
 
       <div className="product-grid">

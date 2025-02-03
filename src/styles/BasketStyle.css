@@ -1,9 +1,10 @@
 
 
 .basket-container {
+  
     max-width: 600px;
-    margin: 0 auto;
-    background-color: #000000;
+    margin: 10rem auto;
+    background-color: #c7ae83;
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -21,7 +22,7 @@
     padding: 1rem 0;
   }
 
-  .product-image {
+  .productThumbnail {
     width: 60px;
     height: 60px;
     object-fit: cover;

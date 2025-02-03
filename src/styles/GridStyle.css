@@ -1,15 +1,16 @@
 
-.allProducts{
-   top:6rem;
+.GridStyle{
+  position: relative;
+  background-color: #805c5c;
+
 }
 .product-grid {
     z-index: -100;
-
-    margin-left: 15rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
+    margin-left: 15rem;
   }
   
   .product-card {
@@ -72,18 +73,25 @@
     background-color: #0056b3;
   }
 
-
-
-   .controls {
-    position: fixed;
-    top: 13rem; 
+.controlsWrapper{
+    position: absolute;
+  }
+.controls{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+;
+}
+   /* .controls {
+    position: absolute;
+    top: 3rem; 
     left: 1rem;
     display: flex;
     min-height: 50vh;
     flex-direction: column;
     gap: 20px;
     padding: 10px;
-  }
+  } */
   .dropdown {
     background-color:#F43016;
     padding: 8px;

@@ -28,3 +28,32 @@
 .homeButton:hover{
     background-color:#F43016 ;
 }
+
+.design2{
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    padding: 0 1rem;
+    margin-top: -3rem ;
+    h1{
+    font-style: oblique;
+    font-size:80px;
+    font-weight: 200;
+    }
+}
+.design2::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height:100vh;
+    background-image: url("../assets/sunset.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+  }
