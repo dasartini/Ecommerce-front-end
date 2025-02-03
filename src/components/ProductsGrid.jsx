@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { allProducts, getCategories } from '../../api';
 import GridStyle from '../styles/GridStyle';
 import { Link } from 'react-router';
@@ -11,6 +11,43 @@ export default function ProductsGrid() {
   const [error, setError] = useState(null)
   const [sortOption, setSortOption] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("")
+
+  const targetDivRef = useRef(null);
+  const [navbarHeight, setNavbarHeight] = useState(0);
+  const [originalTop, setOriginalTop] = useState(0);
+
+  useEffect(() => {
+    const navbar = document.querySelector('header');
+    setNavbarHeight(navbar.offsetHeight);
+
+    const targetDiv = targetDivRef.current;
+    if (targetDiv) {
+      const rect = targetDiv.getBoundingClientRect();
+      setOriginalTop(rect.top + window.pageYOffset);
+    }
+
+    const handleScroll = () => {
+      if (!targetDiv) return;
+
+      const scrollPosition = window.pageYOffset;
+      const targetDivTop = originalTop - scrollPosition;
+
+      if (targetDivTop <= navbarHeight) {
+        targetDiv.style.position = 'fixed';
+        targetDiv.style.top = `${navbarHeight+10}px`;
+        targetDiv.style.zIndex = '1';
+      } else {
+        targetDiv.style.position = 'absolute';
+        targetDiv.style.top = '1rem';
+        targetDiv.style.left= "0.5rem"
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [navbarHeight, originalTop]);
+
+ 
 
   useEffect(() => {
     async function fetchData() {
@@ -61,8 +98,7 @@ export default function ProductsGrid() {
   return (
     <GridStyle>
 <div className='allProducts'>
-  <div className='controlsWrapper'>
-      <div className="controls">
+      <div ref={targetDivRef} className="controls">
         <select
           className="dropdown"
           value={sortOption}
@@ -86,7 +122,6 @@ export default function ProductsGrid() {
             </option>
           ))}
         </select>
-      </div>
       </div>
 
       <div className="product-grid">
