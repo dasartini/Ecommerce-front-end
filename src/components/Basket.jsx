@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useBasketContext } from "../contexts/BasketContext";
 import BasketStyle from "../styles/BasketStyle";
+import {useNavigate} from "react-router"
 
 export default function Basket() {
+
   const { setQuantity,currentBasket ,setCurrentBasket} = useBasketContext();
   const clearBasket = () => {
     setCurrentBasket([]);
@@ -17,6 +19,12 @@ export default function Basket() {
     const updatedQuantity = updatedBasket.reduce((sum, item) => sum + item.quantity, 0);
     setQuantity(updatedQuantity);
   };
+  const navigate = useNavigate()
+  const handleClick = () =>{
+
+     navigate("/checkout-form")
+     }
+
 
   return (
        <BasketStyle>
@@ -53,6 +61,9 @@ export default function Basket() {
               <h3>Total: £{calculateTotal()}</h3>
               <button className="clear-basket-btn" onClick={clearBasket}>
                 Clear Basket
+              </button>
+              <button className="clear-basket-btn" onClick={handleClick}>
+                Pay
               </button>
             </div>
           </>

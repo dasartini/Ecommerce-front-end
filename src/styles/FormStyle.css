@@ -1,0 +1,32 @@
+.checkout-form {
+    margin: 10rem auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .checkoutButton {
+    background-color: #f43016;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .checkoutButton:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+  }
+  
+  .shipping-method {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
