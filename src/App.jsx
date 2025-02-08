@@ -7,6 +7,7 @@ import SingleProduct from './components/SingleProduct'
 import { BasketProvider } from './contexts/BasketContext'
 import Basket from './components/Basket'
 import CheckoutForm from './components/CheckoutForm'
+import { CustomerDataProvider } from './contexts/CustomerContext'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     <div>
       <BasketProvider>
+        <CustomerDataProvider>
     <Header/>
     <main>
   
@@ -29,6 +31,7 @@ function App() {
 
     </Routes>
     </main>
+    </CustomerDataProvider>
     </BasketProvider>
     </div>
   )

@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useBasketContext } from "../contexts/BasketContext";
 import BasketStyle from "../styles/BasketStyle";
 import {useNavigate} from "react-router"
+import CheckoutForm from "./CheckoutForm";
+import { useCustomerDataContext } from "../contexts/CustomerContext";
 
 export default function Basket() {
-
-  const { setQuantity,currentBasket ,setCurrentBasket} = useBasketContext();
+  const {customerData, setCustomerData} = useCustomerDataContext()
+  const [visible, setVisible] = useState(false)
+  const { setQuantity,currentBasket ,setCurrentBasket, totalPrice} = useBasketContext();
   const clearBasket = () => {
     setCurrentBasket([]);
     setQuantity(0);
   };
-  const calculateTotal = () =>
-    currentBasket.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
+ 
 
   const removeItemFromBasket = (id) => {
     const updatedBasket = currentBasket.filter(item => item.id !== id);
@@ -22,7 +24,8 @@ export default function Basket() {
   const navigate = useNavigate()
   const handleClick = () =>{
 
-     navigate("/checkout-form")
+     setVisible(true)
+     console.log(currentBasket)
      }
 
 
@@ -58,13 +61,18 @@ export default function Basket() {
             </ul>
             <hr className="divider" />
             <div className="basket-total">
-              <h3>Total: £{calculateTotal()}</h3>
+              <h3>Total: £{totalPrice}</h3>
+              <button onClick={()=>{console.log(currentBasket)}}>logBasket </button>
+
+              <button onClick={(()=>{setCustomerData([])})}>clear customer</button>
+              <button onClick={()=>{console.log(customerData)}}>log customer </button>
               <button className="clear-basket-btn" onClick={clearBasket}>
                 Clear Basket
               </button>
               <button className="clear-basket-btn" onClick={handleClick}>
                 Pay
               </button>
+              {visible && <CheckoutForm/>}
             </div>
           </>
         )}

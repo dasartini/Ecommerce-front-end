@@ -1,10 +1,14 @@
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
 import { useState } from "react";
+import { useBasketContext } from "../contexts/BasketContext";
+import { useCustomerDataContext } from "../contexts/CustomerContext";
+import { checkout } from "../../api";
 
 
 export default function Checkout() {
-
-    const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
+  const { setQuantity,currentBasket ,setCurrentBasket, totalPrice} = useBasketContext();
+    const{ customerData, setCustomerData} =useCustomerDataContext()
+  const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
     const [currency, setCurrency] = useState(options.currency);
 
     const onCurrencyChange = ({ target: { value } }) => {
@@ -23,19 +27,35 @@ export default function Checkout() {
             purchase_units: [
                 {
                     amount: {
-                        value: "8.99",
+                        value: totalPrice,
                     },
                 },
             ],
         });
     }
 
-    const onApproveOrder = (data,actions) => {
-        return actions.order.capture().then((details) => {
-            const name = details.payer.name.given_name;
-            alert(`Transaction completed by ${name}`);
-        });
-    }
+    const onApproveOrder = async (data, actions) => {
+        try {
+          const details = await actions.order.capture(); // Capture payment
+          setCustomerData(details);
+    
+          // Build request for backend checkout
+          const response = await checkout(
+            details,
+            currentBasket,
+            totalPrice
+          );
+    
+          if (response) {
+            alert("Order placed successfully!");
+            setCurrentBasket([]); // Clear basket
+            setQuantity(0);
+          }
+        } catch (err) {
+          console.error("Error processing the payment or checkout:", err);
+          alert("Something went wrong during checkout!");
+        }
+      };
 
     return (
         <div className="checkout">
