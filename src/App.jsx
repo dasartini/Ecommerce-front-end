@@ -6,24 +6,32 @@ import AllProducts from './components/AllProducts'
 import SingleProduct from './components/SingleProduct'
 import { BasketProvider } from './contexts/BasketContext'
 import Basket from './components/Basket'
+import CheckoutForm from './components/CheckoutForm'
+import { CustomerDataProvider } from './contexts/CustomerContext'
+
 
 function App() {
+
   const [count, setCount] = useState(0)
 
   return (
     <div>
       <BasketProvider>
+        <CustomerDataProvider>
     <Header/>
     <main>
+  
     <Routes>
  
     <Route path='/' element={<HomePage/>} />
     <Route path="/shop" element={<AllProducts/>}/>
     <Route path="/shop/:id" element={<SingleProduct/>}/>
     <Route path="/basket" element={<Basket/>}/>
+    <Route path="/checkout-form" element={<CheckoutForm/>}/>
 
     </Routes>
     </main>
+    </CustomerDataProvider>
     </BasketProvider>
     </div>
   )
