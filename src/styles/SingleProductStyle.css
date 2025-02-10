@@ -56,3 +56,12 @@
     margin-top: 10px;
   }
   
+
+  @media (max-width: 768px){
+
+    .productCard{
+      display: flex;
+      flex-direction: column;
+   
+    }
+  }
