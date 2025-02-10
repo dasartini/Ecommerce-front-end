@@ -8,6 +8,8 @@ import { BasketProvider } from './contexts/BasketContext'
 import Basket from './components/Basket'
 import CheckoutForm from './components/CheckoutForm'
 import { CustomerDataProvider } from './contexts/CustomerContext'
+import Login from './components/LogIn'
+import { AuthProvider } from './contexts/AuthContext'
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
 
   return (
     <div>
+      <AuthProvider>
       <BasketProvider>
         <CustomerDataProvider>
     <Header/>
@@ -24,6 +27,8 @@ function App() {
     <Routes>
  
     <Route path='/' element={<HomePage/>} />
+    <Route path='/admin' element={<Login/>} />
+
     <Route path="/shop" element={<AllProducts/>}/>
     <Route path="/shop/:id" element={<SingleProduct/>}/>
     <Route path="/basket" element={<Basket/>}/>
@@ -33,6 +38,7 @@ function App() {
     </main>
     </CustomerDataProvider>
     </BasketProvider>
+    </AuthProvider>
     </div>
   )
 }
