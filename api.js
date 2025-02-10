@@ -50,3 +50,17 @@ export const checkout = (customerData, currentBasket, totalPrice) =>{
         console.error("there was an error:", err)
     })
 }
+export const login = (email, password) => {
+        return axios.post("http://localhost:5000/login/auth", {
+        email,
+        password,
+      })
+      .then((data)=>{
+        console.log("success")
+        console.log(data.data.user.name)
+        return data.data
+      }).catch((err)=>{
+        console.log("fail", err)
+        console.error("there was an error:", err)
+    })
+}
