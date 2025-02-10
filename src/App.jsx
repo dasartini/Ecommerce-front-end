@@ -10,11 +10,13 @@ import CheckoutForm from './components/CheckoutForm'
 import { CustomerDataProvider } from './contexts/CustomerContext'
 import Login from './components/LogIn'
 import { AuthProvider } from './contexts/AuthContext'
-
-
+import AdminPage from './components/AdminPage'
+import PrivateRoute from './protect/PrivateRoute'
+import AddStock from "./components/adminComponents/AddStock"
+import CreateProduct from "./components/adminComponents/CreateProduct"
+import ModifyProduct from "./components/adminComponents/ModifyProduct"
+import CreateCategory from "./components/adminComponents/CreateCategory"
 function App() {
-
-  const [count, setCount] = useState(0)
 
   return (
     <div>
@@ -24,17 +26,30 @@ function App() {
     <Header/>
     <main>
   
+
     <Routes>
- 
-    <Route path='/' element={<HomePage/>} />
-    <Route path='/admin' element={<Login/>} />
+  <Route path="/" element={<HomePage />} />
+  <Route path="/login" element={<Login />} />
+  <Route
+    path="/admin"
+    element={
+      <PrivateRoute>
+        <AdminPage />
+      </PrivateRoute>
+    }
+  >
+    <Route path="create-product" element={<CreateProduct />} />
+    <Route path="add-stock" element={<AddStock />} />
+    <Route path="modify-products" element={<ModifyProduct />} />
+    <Route path="create-category" element={<CreateCategory />} />
 
-    <Route path="/shop" element={<AllProducts/>}/>
-    <Route path="/shop/:id" element={<SingleProduct/>}/>
-    <Route path="/basket" element={<Basket/>}/>
-    <Route path="/checkout-form" element={<CheckoutForm/>}/>
 
-    </Routes>
+  </Route>
+  <Route path="/shop" element={<AllProducts />} />
+  <Route path="/shop/:id" element={<SingleProduct />} />
+  <Route path="/basket" element={<Basket />} />
+  <Route path="/checkout-form" element={<CheckoutForm />} />
+</Routes>
     </main>
     </CustomerDataProvider>
     </BasketProvider>

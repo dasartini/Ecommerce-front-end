@@ -3,8 +3,10 @@ import logo from "../assets/logo.png";
 import basket from "../assets/basket.svg";
 import { Link } from "react-router";
 import { useBasketContext } from "../contexts/BasketContext";
+import { useAuthContext } from "../contexts/AuthContext";
 
 export default function Header() {
+  const {authToken} = useAuthContext()
   const { quantity } = useBasketContext();
 
   return (
@@ -19,6 +21,8 @@ export default function Header() {
               </Link>
              <Link to={"/"}> <p>About</p></Link>
               <p>Contact</p>
+             {authToken &&  <Link to={"/admin"}> <p>Admin</p></Link> }
+
             </nav>
           </div>
 

@@ -1,0 +1,16 @@
+.mainContainerAdmin{
+
+margin-top: 7rem;
+min-height: 90vh;
+background-color: aliceblue;
+color: black;
+display: flex;
+flex-direction: row;
+}
+.listCont{
+    position: relative;
+    width: 35vh;
+    height: 100vh;
+    background-color: blue;
+
+}
