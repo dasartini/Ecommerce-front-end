@@ -24,6 +24,33 @@ export const getCategories = () =>{
 
 }
 
+export const createCategory = (name)=>{ 
+    return axios.post("http://localhost:5000/categories",{
+        category_name: name
+    })
+    .then((data)=>{
+        return data.data
+    }).catch((err)=>{
+        console.error("there was an error:", err)
+    })
+
+}
+export const updateProduct = (id, productData)=>{
+    return axios.put(`http://localhost:5000/products/${id}`,{
+        name: productData.name,
+        price: productData.price,
+        stock: productData.stock,
+        image_url: productData.image_url,
+        description: productData.description,
+        category_id: productData.category_id,
+    })
+    .then((data)=>{
+        return data.data
+    }).catch((err)=>{
+        console.error("there was an error:", err)
+    })
+}
+
 export const getProductById = (id) =>{
     return axios.get(`http://localhost:5000/products/${id}`)
     .then((data)=>{
@@ -64,3 +91,4 @@ export const login = (email, password) => {
         console.error("there was an error:", err)
     })
 }
+

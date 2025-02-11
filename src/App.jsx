@@ -40,7 +40,7 @@ function App() {
   >
     <Route path="create-product" element={<CreateProduct />} />
     <Route path="add-stock" element={<AddStock />} />
-    <Route path="modify-products" element={<ModifyProduct />} />
+    <Route path="create-category/modify-products/:id" element={<ModifyProduct />} />
     <Route path="create-category" element={<CreateCategory />} />
 
 

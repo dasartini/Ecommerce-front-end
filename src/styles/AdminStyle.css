@@ -1,16 +1,151 @@
-.mainContainerAdmin{
 
-margin-top: 7rem;
-min-height: 90vh;
-background-color: aliceblue;
-color: black;
-display: flex;
-flex-direction: row;
-}
-.listCont{
+.mainContainerAdmin {
+    margin-top: 7rem;
+    min-height: 90vh;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .listCont {
+    width: 20%;
+    min-height: 90vh;
+    background-color: rgb(112, 112, 248);
     position: relative;
-    width: 35vh;
-    height: 100vh;
-    background-color: blue;
+  }
+  
+  .adminRenderCont {
+    width: 80%;
 
+  }
+  
+  .menu-icon {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .listCont {
+      position: fixed;
+      top: 7rem;
+      left: 0;
+      height: calc(100vh - 7.5rem);
+      width: 60%;
+      transform: translateX(-100%);
+      background-color: rgb(112, 112, 248);
+      transition: transform 0.3s ease-in-out;
+      z-index: 999;
+    }
+  
+    .listCont.show-menu {
+      transform: translateX(0); 
+    }
+  
+    .adminRenderCont {
+      width: 100%;
+    }
+  
+    .menu-icon {
+      display: block;
+      font-size: 2rem;
+      cursor: pointer;
+      margin: 1rem;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1000;
+    }
+  }
+
+
+/* Categories */
+.allProductsAdmin{
+  position: relative;
+  background-color: #ffffff;
 }
+
+.controlsAdmin{
+  padding: 3px;
+position: absolute;
+top:1rem;
+left: 0.5rem;
+display: flex;
+flex-direction: column;
+gap: 5px;
+ width: 15rem;
+}
+
+  .dropdownAdmin {
+    background-color:#F43016;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+
+
+.product-gridAdmin {
+  
+    z-index: -100;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-left: 15rem;
+  }
+  
+  .product-cardAdmin {
+    background-color: #c7ae83;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .product-cardAdmin:hover {
+    transform: translateY(-5px);
+  }
+    .product-imageAdmin {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .product-titleAdmin {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  
+  .product-priceAdmin {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  .product-stockAdmin {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .product-buttonAdmin {
+    background-color: #F43016;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+  
+  .product-buttonAdmin:hover {
+    background-color: #0056b3;
+  }
+
+
