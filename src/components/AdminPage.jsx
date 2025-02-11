@@ -1,16 +1,25 @@
-import { NavLink, Outlet } from "react-router";
+import { useState } from "react";
+import { NavLink, Outlet } from "react-router"; // Corrected import
 import AdminStyle from "../styles/AdminStyle";
+import { X, Menu } from "lucide-react";
 
 function AdminPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <AdminStyle>
       <div className="mainContainerAdmin">
+        {/* Menu Icon for Responsive Mode */}
+        <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <X /> : <Menu />}
+        </div>
+
         {/* Navigation List */}
-        <div className="listCont">
+        <div className={`listCont ${isMenuOpen ? "show-menu" : ""}`}>
           <p>Controls:</p>
           <nav>
             <ol>
-            <li>
+              <li>
                 <NavLink to="create-category">Create Category</NavLink>
               </li>
               <li>
@@ -26,9 +35,8 @@ function AdminPage() {
           </nav>
         </div>
 
-        {/* Render Area */}
         <div className="adminRenderCont">
-          <Outlet /> {/* This renders the matched child route */}
+          <Outlet />
         </div>
       </div>
     </AdminStyle>
