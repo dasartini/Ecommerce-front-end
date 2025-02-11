@@ -16,37 +16,38 @@ function CreateCategory() {
   const [navbarHeight, setNavbarHeight] = useState(0);
   const [originalTop, setOriginalTop] = useState(0);
 
-  useEffect(() => {
-    const navbar = document.querySelector("header");
+useEffect(() => {
+    const navbar = document.querySelector('header');
     setNavbarHeight(navbar.offsetHeight);
-
+  
     const targetDiv = targetDivRef.current;
     if (targetDiv) {
       const rect = targetDiv.getBoundingClientRect();
       setOriginalTop(rect.top + window.pageYOffset);
     }
-
+  
     const handleScroll = () => {
+      if (window.innerWidth <= 768) return;
       if (!targetDiv) return;
-
+  
       const scrollPosition = window.pageYOffset;
       const targetDivTop = originalTop - scrollPosition;
-
+  
       if (targetDivTop <= navbarHeight) {
-        targetDiv.style.position = "fixed";
-        targetDiv.style.top = `${navbarHeight + 10}px`;
-        targetDiv.style.zIndex = "1";
+        targetDiv.style.position = 'absolute';
+        targetDiv.style.top = `0`;
+        targetDiv.style.zIndex = '1';
       } else {
-        targetDiv.style.position = "absolute";
-        targetDiv.style.top = "1rem";
-        targetDiv.style.left = "0.5rem";
+        targetDiv.style.position = 'absolute';
+        targetDiv.style.top = '1rem';
+        targetDiv.style.left = '0.5rem';
       }
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [navbarHeight, originalTop]);
-
+ 
   useEffect(() => {
     async function fetchData() {
       try {
