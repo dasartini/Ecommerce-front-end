@@ -35,6 +35,21 @@ export const createCategory = (name)=>{
     })
 
 }
+
+export const createProduct = (productData) =>{
+    return axios.post("http://localhost:5000/products",{
+        name: productData.name,
+        price: productData.price,
+        stock: productData.stock,
+        image_url: productData.image_url,
+        description: productData.description,
+        category_id: productData.category_id,
+    }) .then((data)=>{
+        return data.data
+    }).catch((err)=>{
+        console.error("there was an error:", err)
+    })
+}
 export const updateProduct = (id, productData)=>{
     return axios.put(`http://localhost:5000/products/${id}`,{
         name: productData.name,

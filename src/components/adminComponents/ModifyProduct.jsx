@@ -29,7 +29,6 @@ function ModifyProducts() {
         setProduct(productData);
         setCategories(categoryData);
 
-        // Populate form with existing product values
         setFormData({
           name: productData.name,
           price: productData.price,
