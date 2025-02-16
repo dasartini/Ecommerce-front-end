@@ -1,7 +1,8 @@
 
 .GridStyle{
   position: relative;
-  background-color: #805c5c;
+  background-color: #180d0d;
+  width: 100%
 }
 .product-grid {
   
@@ -14,8 +15,8 @@
   }
   
   .product-card {
-    background-color: #c7ae83;
-    border: 1px solid #ddd;
+    background-color: #F43016;
+    border: 1px solid#000000;
     border-radius: 12px;
     padding: 16px;
     text-align: center;
@@ -30,14 +31,14 @@
     max-width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: px;
     margin-bottom: 12px;
   }
   
   .product-title {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #333;
+    color: #000000;
   }
   
   .product-description {
@@ -49,7 +50,7 @@
   .product-price {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #28a745;
+    color: #968c68;
   }
   
   .product-stock {
@@ -58,7 +59,7 @@
   }
   
   .product-button {
-    background-color: #F43016;
+    background-color:  #180d0d;
     color: white;
     padding: 10px 16px;
     border: none;
@@ -69,7 +70,7 @@
   }
   
   .product-button:hover {
-    background-color: #0056b3;
+    background-color: #1c252e;
   }
 
 
@@ -89,7 +90,7 @@ gap: 5px;
     padding: 8px;
     font-size: 1rem;
     border-radius: 6px;
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
   }
 
 
@@ -119,16 +120,16 @@ gap: 5px;
     }
   
     .product-grid {
-      transform: translateY(70px);
+      transform: translateY(10px);
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 15px;
-      padding: 15px;
+      gap: 20px;
+      
     }
     .product-image {
-      height: 150px;
+      height: 300px;
     }
     .product-title {
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
     .product-price {
       font-size: 1rem;

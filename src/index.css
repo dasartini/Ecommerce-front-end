@@ -33,7 +33,14 @@ a{
 }
 
 html, body {
-  overflow-x: hidden;
+   overflow-x: hidden;
+
+}
+
+body{
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 
