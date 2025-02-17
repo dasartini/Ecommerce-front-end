@@ -9,11 +9,12 @@ export default function Design() {
     <video className="coffeeVideo" autoPlay muted loop >
         <source src={coffee} type="video/mp4"/>
        </video>   
-       
+       <div className='videoTextCont'>
        <h1>Delight yourself with a world of flavours</h1>
        <h3>From Colombia, previously unexplored</h3>
      <Link to="/shop"> <button className="homeButton">SHOP NOW</button>
      </Link>
+       </div>
         </div>
   )
 }
