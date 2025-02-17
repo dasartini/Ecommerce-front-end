@@ -1,5 +1,5 @@
 import HeaderStyle from "../styles/HeaderStyle";
-import logo from "../assets/logo.png";
+import logo from "../assets/logocolor.png";
 import basket from "../assets/basket.svg";
 import { Link } from "react-router";
 import { useBasketContext } from "../contexts/BasketContext";

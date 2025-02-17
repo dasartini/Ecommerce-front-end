@@ -11,7 +11,7 @@
   }
   
   header {
-    background-color: #F43016;
+    background-color: #683412;
     height: 7rem;
     z-index: 100;
     position: fixed;
@@ -20,9 +20,9 @@
   }
   
   .logo {
-    height: 8rem;
+    height: 6.5rem;
     position: absolute;
-    top:-20px;
+    top:-10px;
     z-index: -1;
   }
   
@@ -36,12 +36,13 @@
   .buttonsContainer {
     display: flex;
     gap: 1.5rem;
-    margin-top: 5rem;
+    margin-top: 5.3rem;
   }
   
   .buttonsContainer p {
     cursor: pointer;
    font-weight: lighter;  
+   font-size: small;
   color: white;
 
   }
