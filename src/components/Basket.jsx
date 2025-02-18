@@ -15,8 +15,8 @@ export default function Basket() {
   };
  
 
-  const removeItemFromBasket = (id) => {
-    const updatedBasket = currentBasket.filter(item => item.id !== id);
+  const removeItemFromBasket = (id, size, grind) => {
+    const updatedBasket = currentBasket.filter(item => !(item.id === id && item.size === size && item.grind === grind));
     setCurrentBasket(updatedBasket);
     const updatedQuantity = updatedBasket.reduce((sum, item) => sum + item.quantity, 0);
     setQuantity(updatedQuantity);
@@ -39,8 +39,8 @@ export default function Basket() {
           <>
             <ul className="basket-list">
               {currentBasket.map((item) => (
-                <li key={item.id} className="basket-item">
-                  <img
+                <li key={`${item.id}-${item.size}-${item.grind}`} className="basket-item">
+                <img
                     src={item.image_url}
                     alt={item.name}
                     className="productThumbnail"
@@ -48,11 +48,13 @@ export default function Basket() {
                   <div className="product-details">
                     <h3>{item.name}</h3>
                     <p>Qty: {item.quantity}</p>
+                    <p>Size: {item.size}</p>
+                    <p>Grind: {item.grind}</p>
                     <p>£{(item.price * item.quantity).toFixed(2)}</p>
                   </div>
                   <button
                     className="remove-item-btn"
-                    onClick={() => removeItemFromBasket(item.id)}
+                    onClick={() => removeItemFromBasket(item.id, item.size, item.grind)}
                   >
                     ✕
                   </button>

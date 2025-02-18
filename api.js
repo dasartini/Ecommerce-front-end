@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const allProducts = () =>{
 
-    return axios.get("https://cafe-tero.onrender.com/products")
+    return axios.get("http://localhost:5000/products")
     .then((data)=>{
        return data.data
     })
@@ -14,7 +14,7 @@ export const allProducts = () =>{
 
 export const getCategories = () =>{
 
-    return axios.get("https://cafe-tero.onrender.com/categories")
+    return axios.get("http://localhost:5000/categories")
     .then((data)=>{
         return data.data
     })
@@ -25,7 +25,7 @@ export const getCategories = () =>{
 }
 
 export const createCategory = (name)=>{ 
-    return axios.post("https://cafe-tero.onrender.com/categories",{
+    return axios.post("http://localhost:5000/categories",{
         category_name: name
     })
     .then((data)=>{
@@ -37,7 +37,7 @@ export const createCategory = (name)=>{
 }
 
 export const createProduct = (productData) =>{
-    return axios.post("https://cafe-tero.onrender.com/products",{
+    return axios.post("http://localhost:5000/products",{
         name: productData.name,
         price: productData.price,
         stock: productData.stock,
@@ -51,7 +51,7 @@ export const createProduct = (productData) =>{
     })
 }
 export const updateProduct = (id, productData)=>{
-    return axios.put(`https://cafe-tero.onrender.com/products/${id}`,{
+    return axios.put(`http://localhost:5000/products/${id}`,{
         name: productData.name,
         price: productData.price,
         stock: productData.stock,
@@ -67,7 +67,7 @@ export const updateProduct = (id, productData)=>{
 }
 
 export const getProductById = (id) =>{
-    return axios.get(`https://cafe-tero.onrender.com/products/${id}`)
+    return axios.get(`http://localhost:5000/products/${id}`)
     .then((data)=>{
         console.log(data)
         return data.data
@@ -78,7 +78,7 @@ export const getProductById = (id) =>{
 }
 
 export const checkout = (customerData, currentBasket, totalPrice) =>{
-    return axios.post("https://cafe-tero.onrender.com/checkout",{
+    return axios.post("http://localhost:5000/checkout",{
         items : currentBasket,
         total_price: totalPrice,
         customer_name: customerData.purchase_units[0].shipping.name.full_name,
@@ -93,7 +93,7 @@ export const checkout = (customerData, currentBasket, totalPrice) =>{
     })
 }
 export const login = (email, password) => {
-        return axios.post("https://cafe-tero.onrender.com/login/auth", {
+        return axios.post("http://localhost:5000/login/auth", {
         email,
         password,
       })

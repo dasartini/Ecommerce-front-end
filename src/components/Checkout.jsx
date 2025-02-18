@@ -36,10 +36,9 @@ export default function Checkout() {
 
     const onApproveOrder = async (data, actions) => {
         try {
-          const details = await actions.order.capture(); // Capture payment
+          const details = await actions.order.capture(); 
           setCustomerData(details);
     
-          // Build request for backend checkout
           const response = await checkout(
             details,
             currentBasket,
@@ -48,7 +47,7 @@ export default function Checkout() {
     
           if (response) {
             alert("Order placed successfully!");
-            setCurrentBasket([]); // Clear basket
+            setCurrentBasket([]);
             setQuantity(0);
           }
         } catch (err) {
