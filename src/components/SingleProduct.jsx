@@ -81,6 +81,12 @@ export default function SingleProduct() {
               250g
             </button>
             <button
+              className={`sizeOption ${selectedSize === "500g" ? "active" : ""}`}
+              onClick={() => setSelectedSize("500g")}
+            >
+              500g
+            </button>
+            <button
               className={`sizeOption ${selectedSize === "1kg" ? "active" : ""}`}
               onClick={() => setSelectedSize("1kg")}
             >

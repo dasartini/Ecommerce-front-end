@@ -78,6 +78,16 @@ export const getProductById = (id) =>{
 }
 
 export const checkout = (customerData, currentBasket, totalPrice) =>{
+    currentBasket.forEach(element => {
+        if(element.size === "500g"){ 
+            element.quantity = 2
+            element.size = "250g"
+        }
+        else if(element.size === "1kg"){ 
+            element.quantity = 4
+            element.size = "250g"
+        }
+    });
     return axios.post("http://localhost:5000/checkout",{
         items : currentBasket,
         total_price: totalPrice,
