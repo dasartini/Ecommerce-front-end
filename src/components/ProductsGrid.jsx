@@ -126,8 +126,8 @@ export default function ProductsGrid() {
 
       <div className="product-grid">
         {filteredProducts.map((product) => (
-          <Link to={`/shop/${product.id}`}>
-          <div key={product.id} className="product-card">
+          <Link key={product.id} to={`/shop/${product.id}`}>
+          <div  className="product-card">
             <img
               className="product-image"
               src={product.image_url}

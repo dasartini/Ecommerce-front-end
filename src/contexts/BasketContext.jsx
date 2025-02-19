@@ -13,7 +13,6 @@ export const BasketProvider = ({ children }) => {
     return savedQuantity ? parseInt(savedQuantity) : 0;
   });
 
-  // Calculate total price from basket items
   const totalPrice = currentBasket.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
