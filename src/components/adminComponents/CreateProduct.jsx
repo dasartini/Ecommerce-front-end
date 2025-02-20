@@ -11,6 +11,7 @@ function CreateProduct() {
     image_url: "",
     description: "",
     category_id: "",
+    details:null
   });
 
 useEffect(()=>{
@@ -108,6 +109,7 @@ if(confirmation){
                 </option>
               ))}
             </select>
+            
     </form>
 
 

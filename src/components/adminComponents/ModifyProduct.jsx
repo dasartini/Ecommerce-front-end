@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import SingleProductStyle from "../../styles/SingleProductStyle";
 
 function ModifyProducts() {
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -16,6 +16,13 @@ function ModifyProducts() {
     image_url: "",
     description: "",
     category_id: "",
+    isCoffee: "",
+    details: {
+      Altitude: "",
+      Region: "",
+      Variety: "",
+      "Flavour notes": "",
+    },
   });
 
   useEffect(() => {
@@ -25,10 +32,9 @@ function ModifyProducts() {
 
         const productData = await getProductById(id);
         const categoryData = await getCategories();
-
+        console.log(productData)
         setProduct(productData);
         setCategories(categoryData);
-
         setFormData({
           name: productData.name,
           price: productData.price,
@@ -36,8 +42,14 @@ function ModifyProducts() {
           image_url: productData.image_url,
           description: productData.description,
           category_id: productData.category_id,
+          isCoffee: productData.isCoffee ,
+          details: productData.details || {
+            Altitude: "",
+            Region: "",
+            Variety: "",
+            "Flavour notes": "",
+          },
         });
-
         setLoading(false);
       } catch (err) {
         console.error("Error fetching product or categories", err);
@@ -45,11 +57,26 @@ function ModifyProducts() {
     };
 
     fetchProductAndCategories();
-  }, [id]);
+  }, [id]); 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleCheckboxChange = (event) => {
+    setFormData(prevData => ({
+      ...prevData,
+      isCoffee: event.target.checked
+    }));
+  };
+
+  const handleDetailsChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      details: { ...formData.details, [name]: value },
+    });
   };
 
   const commitChanges = async () => {
@@ -58,15 +85,15 @@ function ModifyProducts() {
     );
 
     if (confirmation) {
-    try {
-      await updateProduct(id, formData);
-      alert("Product successfully updated!");
-    } catch (err) {
-      console.error("Error updating product", err);
-      alert("Failed to update the product.");
+      try {
+        await updateProduct(id, formData);
+        alert("Product successfully updated!");
+      } catch (err) {
+        console.error("Error updating product", err);
+        alert("Failed to update the product.");
+      }
     }
-  }
-  } ;
+  };
 
   if (loading) return <div>Loading product...</div>;
 
@@ -141,12 +168,54 @@ function ModifyProducts() {
               ))}
             </select>
             <br />
+
+            Is this a coffee?
+            <input
+              type="checkbox"
+              defaultChecked={product.iscoffee}
+              onChange={handleCheckboxChange} 
+            />
+            <br />
+
+            Coffee Details:<br />
+            Altitude:
+            <input
+              type="text"
+              name="Altitude"
+              onChange={handleDetailsChange}
+              value={formData.details.Altitude}
+            />
+            <br />
+
+            Region:
+            <input
+              type="text"
+              name="Region"
+              onChange={handleDetailsChange}
+              value={formData.details.Region}
+            />
+            <br />
+
+            Variety:
+            <input
+              type="text"
+              name="Variety"
+              onChange={handleDetailsChange}
+              value={formData.details.Variety}
+            />
+            <br />
+
+            Flavour notes:
+            <input
+              type="text"
+              name="Flavour notes"
+              onChange={handleDetailsChange}
+              value={formData.details["Flavour notes"]}
+            />
+            <br />
           </form>
 
-          <button
-            className="addToCartButton"
-            onClick={commitChanges}
-          >
+          <button className="addToCartButton" onClick={commitChanges}>
             Commit Changes
           </button>
         </div>

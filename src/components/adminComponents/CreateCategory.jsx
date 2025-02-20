@@ -133,7 +133,7 @@ useEffect(() => {
         <div className="product-gridAdmin">
           {filteredProducts.map((product) => (
      
-              <div className="product-cardAdmin">
+              <div key={product.id} className="product-cardAdmin">
                 <img
                   className="product-imageAdmin"
                   src={product.image_url}
@@ -143,7 +143,7 @@ useEffect(() => {
                 <p className="product-priceAdmin">£{product.price}</p>
                 <p className="product-stockAdmin">Stock:{product.stock}</p>
 
-                <Link to={`modify-products/${product.id}`} key={product.id}> <button className="product-buttonAdmin">MODIFY</button></Link>
+                <Link to={`modify-products/${product.id}`} > <button className="product-buttonAdmin">MODIFY</button></Link>
               </div>
           ))}
         </div>

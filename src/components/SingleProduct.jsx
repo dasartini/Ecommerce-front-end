@@ -3,8 +3,11 @@ import { getProductById } from "../../api";
 import { useParams } from "react-router";
 import SingleProductStyle from "../styles/SingleProductStyle";
 import { useBasketContext } from "../contexts/BasketContext";
+import { motion , AnimatePresence} from "framer-motion";
+
 
 export default function SingleProduct() {
+  const [isVisible, setIsVisible] = useState(false);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [productQuantity, setProductQuantity] = useState(1);
@@ -67,8 +70,10 @@ export default function SingleProduct() {
   return (
     <SingleProductStyle>
       <div className="productCard">
-        <img className="singleProduct" src={product.image_url} alt={product.name} />
-        <div className="productSpecs">
+        <div style={{display:"flex", justifyContent:"center",alignItems: "center"}}>
+      <img className="singleProduct" src={product.image_url} alt={product.name} />
+      </div>
+     <div className="productSpecs">
           <h2>{product.name}</h2>
           <h3>£{product.price}</h3>
 
@@ -122,7 +127,89 @@ export default function SingleProduct() {
           <button className="addToCartButton" onClick={addToBasket}>
             Add {productQuantity} to Cart
           </button>
+          </div>
+       
+
+        </div> 
+    
+        <div className="singleProductSecondCont">
+        <div className="productCharact">
+        <h1 className="productTitle">{product.name}</h1>
+
+        <h4>
+          Region:
+          <h1>{product.details.Region}</h1>
+        </h4>
+        <h4>
+          Altitude:
+          <h1>{product.details.Altitude} </h1>
+        </h4>
+        <h4>
+          Variety:
+          <h1> {product.details.Variety} </h1>
+        </h4>
+        <h4>
+          Flavour notes:
+          <h1> {product.details["Flavour notes"]}</h1>
+        </h4>
+        
         </div>
+        <motion.div 
+      animate={{ y: isVisible ? -20 : 0 }} 
+      transition={{ duration: 0.5 }} 
+      className="productDescription p-4"
+    >
+      <h2>Description:</h2>
+      <p>
+        {product.description} Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Impedit illo architecto quae dolorum, ipsa nulla, maxime eligendi doloremque,
+        dignissimos maiores voluptatibus odit sit corporis aut ad laudantium corrupti
+        molestiae quam? Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Repudiandae quo perspiciatis delectus tenetur consectetur voluptatem rerum
+        quam voluptatibus consequuntur blanditiis qui cupiditate facere velit iure
+        officia placeat ad, doloremque error! Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Labore doloribus nulla eum, a soluta excepturi quis nemo
+        illo corrupti impedit, nobis incidunt facilis id inventore doloremque
+        consectetur. Officia, ut dolorum.
+      </p>
+
+      <hr style={{ borderTop: "1px solid white", width: "100%" }} />
+
+      <div className="p-4">
+        <span
+          onClick={() => setIsVisible(!isVisible)}
+        
+          className="cursor-pointer text-blue-500 font-semibold"
+        >
+          <p   style={{textAlign:"center"}}> Delivery information</p>
+          
+        </span>
+
+        <AnimatePresence>
+          {isVisible && (
+            <motion.p
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.1 }}
+              className="mt-2 text-gray-700"
+            >
+              We are able to offer delivery to all parts of the United Kingdom.
+              We use Royal Mail for small shipments and DPD for larger shipments.
+              <br />
+              <br />
+              <strong>Express delivery</strong> is sent via Royal Mail 1st Class Tracked.
+              You should expect to receive your order within 1 working day.
+              <br />
+              <br />
+              <strong>Standard delivery</strong> is sent via Royal Mail 2nd Class Tracked.
+              You should expect to receive your order within 2-3 working days.
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
+      
       </div>
     </SingleProductStyle>
   );

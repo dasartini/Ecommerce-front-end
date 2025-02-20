@@ -1,33 +1,70 @@
+.singleProductStyle{
+  display: flex;
+flex-direction: row;
+position: relative;
+}
 .singleProduct{
-    height: 20rem;
+    height: 25rem;
     border-radius: 20px;
 }
-
 .productCard{
-  margin-top: 10rem;
-    padding: 2rem;
-    background-color: #c7ae83;
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+    /* padding: 2rem;
+    background-color:#180D0D ;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 5rem; */
+    /* display: flex;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3rem;
+  background-color:#180D0D ;
+  color:#F43016;
+  /* align-items: center; */
+
+}
+.productCharact{
+text-align: left;
+min-width: 50%
 }
 
+.singleProductSecondCont{
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  background-color:#ffffff;
+  color:#F43016;
+  text-align: center;
+}
 .productSpecs{
 
+  margin-left: 2rem;
     display: flex;
     flex-direction: column;
+    
     gap: 10px;
+    h2{ 
+      text-align: center;
+    }
 }
+.productDescription{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
+}
 .counterContainer {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-top: 10px;
   }
-  
+
   .counterButton {
     background-color: #f43016;
     color: white;
@@ -67,7 +104,7 @@
   
   .sizeOption.active,
   .grindOption.active {
-    background-color: #d32f2f; /* Highlight color */
+    background-color: #d32f2f; 
     color: white;
   }
   
@@ -80,6 +117,16 @@
     .productCard{
       display: flex;
       flex-direction: column;
+      padding: 1.5rem;
    
+    }
+    .singleProduct{
+      margin-bottom: 1rem;
+    }
+    .singleProductSecondCont{
+      flex-direction: column;
+    }
+    .productDescription{
+      margin-top: 1rem;
     }
   }
