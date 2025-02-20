@@ -58,6 +58,13 @@ export const updateProduct = (id, productData)=>{
         image_url: productData.image_url,
         description: productData.description,
         category_id: productData.category_id,
+        isCoffee: productData.isCoffee,
+        details: { Region: productData.details.Region,
+            Altitude: productData.details.Altitude,
+            Variety: productData.details.Variety,
+            "Flavour notes": productData.details["Flavour notes"]
+
+        }
     })
     .then((data)=>{
         return data.data

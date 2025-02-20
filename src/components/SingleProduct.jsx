@@ -138,19 +138,19 @@ export default function SingleProduct() {
 
         <h4>
           Region:
-          <h1>Huila</h1>
+          <h1>{product.details.Region}</h1>
         </h4>
         <h4>
           Altitude:
-          <h1>Acevedo </h1>
+          <h1>{product.details.Altitude} </h1>
         </h4>
         <h4>
           Variety:
-          <h1> Pink Bourbon </h1>
+          <h1> {product.details.Variety} </h1>
         </h4>
         <h4>
           Flavour notes:
-          <h1> Apple Pie, Mangosteen, Blackberry</h1>
+          <h1> {product.details["Flavour notes"]}</h1>
         </h4>
         
         </div>
