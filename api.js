@@ -76,7 +76,6 @@ export const updateProduct = (id, productData)=>{
 export const getProductById = (id) =>{
     return axios.get(`http://localhost:5000/products/${id}`)
     .then((data)=>{
-        console.log(data)
         return data.data
     }) .catch((err)=>{
         console.error("there was an error:", err)

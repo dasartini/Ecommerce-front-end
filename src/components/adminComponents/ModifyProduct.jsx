@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import SingleProductStyle from "../../styles/SingleProductStyle";
 
 function ModifyProducts() {
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -16,7 +16,7 @@ function ModifyProducts() {
     image_url: "",
     description: "",
     category_id: "",
-    isCoffee: false, // Default to boolean
+    isCoffee: "",
     details: {
       Altitude: "",
       Region: "",
@@ -32,10 +32,9 @@ function ModifyProducts() {
 
         const productData = await getProductById(id);
         const categoryData = await getCategories();
-
+        console.log(productData)
         setProduct(productData);
         setCategories(categoryData);
-
         setFormData({
           name: productData.name,
           price: productData.price,
@@ -43,15 +42,14 @@ function ModifyProducts() {
           image_url: productData.image_url,
           description: productData.description,
           category_id: productData.category_id,
-          isCoffee: productData.isCoffee, // Make sure backend sends correct boolean
-          details: productData.details || { // Ensure details is an object
+          isCoffee: productData.isCoffee ,
+          details: productData.details || {
             Altitude: "",
             Region: "",
             Variety: "",
             "Flavour notes": "",
           },
         });
-
         setLoading(false);
       } catch (err) {
         console.error("Error fetching product or categories", err);
@@ -59,20 +57,20 @@ function ModifyProducts() {
     };
 
     fetchProductAndCategories();
-  }, [id]); // No need to add formData here
+  }, [id]); 
 
-  // General input change handler
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Checkbox handler
-  const handleCheckboxChange = (e) => {
-    setFormData({ ...formData, isCoffee: e.target.checked });
+  const handleCheckboxChange = (event) => {
+    setFormData(prevData => ({
+      ...prevData,
+      isCoffee: event.target.checked
+    }));
   };
 
-  // Nested object change handler for details
   const handleDetailsChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -174,8 +172,8 @@ function ModifyProducts() {
             Is this a coffee?
             <input
               type="checkbox"
-              checked={formData.isCoffee} // Fix here
-              onChange={handleCheckboxChange} // Handle toggle
+              defaultChecked={product.iscoffee}
+              onChange={handleCheckboxChange} 
             />
             <br />
 
