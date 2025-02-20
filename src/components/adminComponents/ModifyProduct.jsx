@@ -7,6 +7,7 @@ function ModifyProducts() {
   const [product, setProduct] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [visible, setVisible] = useState(null)
   const { id } = useParams();
 
   const [formData, setFormData] = useState({
@@ -35,6 +36,7 @@ function ModifyProducts() {
         console.log(productData)
         setProduct(productData);
         setCategories(categoryData);
+        setVisible(productData.iscoffee)
         setFormData({
           name: productData.name,
           price: productData.price,
@@ -65,6 +67,8 @@ function ModifyProducts() {
   };
 
   const handleCheckboxChange = (event) => {
+    if(visible){setVisible(false)}
+    else if(!visible){setVisible(true)}
     setFormData(prevData => ({
       ...prevData,
       isCoffee: event.target.checked
@@ -176,8 +180,9 @@ function ModifyProducts() {
               onChange={handleCheckboxChange} 
             />
             <br />
-
-            Coffee Details:<br />
+                {visible&& 
+              (<>
+                Coffee Details:<br />
             Altitude:
             <input
               type="text"
@@ -212,7 +217,8 @@ function ModifyProducts() {
               onChange={handleDetailsChange}
               value={formData.details["Flavour notes"]}
             />
-            <br />
+            <br /></>)}
+            
           </form>
 
           <button className="addToCartButton" onClick={commitChanges}>
