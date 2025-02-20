@@ -12,8 +12,8 @@ min-width: 100%;
     margin-top: 4rem;
     position: absolute;
     h1 {
-        font-style: oblique;
-        font-weight: 200;
+        font-style: italic;
+        font-weight: 300;
         font-size: 3rem;
     }
     h3{

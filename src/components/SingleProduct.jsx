@@ -70,8 +70,10 @@ export default function SingleProduct() {
   return (
     <SingleProductStyle>
       <div className="productCard">
+        <div style={{display:"flex", justifyContent:"center",alignItems: "center"}}>
       <img className="singleProduct" src={product.image_url} alt={product.name} />
-      <div className="productSpecs">
+      </div>
+     <div className="productSpecs">
           <h2>{product.name}</h2>
           <h3>£{product.price}</h3>
 
@@ -173,7 +175,6 @@ export default function SingleProduct() {
 
       <hr style={{ borderTop: "1px solid white", width: "100%" }} />
 
-      {/* Delivery Information Section */}
       <div className="p-4">
         <span
           onClick={() => setIsVisible(!isVisible)}
