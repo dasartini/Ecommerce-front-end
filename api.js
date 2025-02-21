@@ -1,8 +1,9 @@
 import axios from "axios";
+const API = import.meta.env.VITE_API_URL
 
 export const allProducts = () =>{
 
-    return axios.get("http://localhost:5000/products")
+    return axios.get(`${API}/products`)
     .then((data)=>{
        return data.data
     })
@@ -14,7 +15,7 @@ export const allProducts = () =>{
 
 export const getCategories = () =>{
 
-    return axios.get("http://localhost:5000/categories")
+    return axios.get(`${API}/categories`)
     .then((data)=>{
         return data.data
     })
@@ -25,7 +26,7 @@ export const getCategories = () =>{
 }
 
 export const createCategory = (name)=>{ 
-    return axios.post("http://localhost:5000/categories",{
+    return axios.post(`${API}/categories`,{
         category_name: name
     })
     .then((data)=>{
@@ -37,7 +38,7 @@ export const createCategory = (name)=>{
 }
 
 export const createProduct = (productData) =>{
-    return axios.post("http://localhost:5000/products",{
+    return axios.post(`${API}/products`,{
         name: productData.name,
         price: productData.price,
         stock: productData.stock,
@@ -51,7 +52,7 @@ export const createProduct = (productData) =>{
     })
 }
 export const updateProduct = (id, productData)=>{
-    return axios.put(`http://localhost:5000/products/${id}`,{
+    return axios.put(`${API}/products/${id}`,{
         name: productData.name,
         price: productData.price,
         stock: productData.stock,
@@ -74,7 +75,7 @@ export const updateProduct = (id, productData)=>{
 }
 
 export const getProductById = (id) =>{
-    return axios.get(`http://localhost:5000/products/${id}`)
+    return axios.get(`${API}/products/${id}`)
     .then((data)=>{
         return data.data
     }) .catch((err)=>{
@@ -94,7 +95,7 @@ export const checkout = (customerData, currentBasket, totalPrice) =>{
             element.size = "250g"
         }
     });
-    return axios.post("http://localhost:5000/checkout",{
+    return axios.post(`${API}/checkout`,{
         items : currentBasket,
         total_price: totalPrice,
         customer_name: customerData.purchase_units[0].shipping.name.full_name,
@@ -109,7 +110,7 @@ export const checkout = (customerData, currentBasket, totalPrice) =>{
     })
 }
 export const login = (email, password) => {
-        return axios.post("http://localhost:5000/login/auth", {
+        return axios.post(`${API}/login/auth`, {
         email,
         password,
       })
