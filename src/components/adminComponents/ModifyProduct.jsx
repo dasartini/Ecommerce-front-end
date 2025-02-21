@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getProductById, getCategories, updateProduct } from "../../../api";
 import { useParams } from "react-router";
 import SingleProductStyle from "../../styles/SingleProductStyle";
+import { uploadPicture } from "../../../api";
 
 function ModifyProducts() {
   const [product, setProduct] = useState([]);
@@ -99,6 +100,31 @@ function ModifyProducts() {
     }
   };
 
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const formData = new FormData();
+      formData.append('image', file);
+      
+      try {
+        const response = await uploadPicture(id, formData);
+        if (response.data && response.data.imageUrl) {
+          setFormData(prevData => ({
+            ...prevData,
+            image_url: response.data.imageUrl
+          }));
+          alert('Image uploaded successfully!');
+        } else {
+          throw new Error('Image URL not received');
+        }
+      } catch (error) {
+        console.error('Error uploading image:', error);
+        alert('Failed to upload image. Please try again.');
+      }
+    }
+  };
+
+
   if (loading) return <div>Loading product...</div>;
 
   return (
@@ -142,12 +168,18 @@ function ModifyProducts() {
             <br />
 
             Image URL:
-            <textarea
-              name="image_url"
-              value={formData.image_url}
-              onChange={handleInputChange}
-              rows={2}
-            />
+            <div>
+  <label htmlFor="image-upload">Upload Image:</label>
+  <input
+    type="file"
+    id="image-upload"
+    accept="image/*"
+    onChange={handleImageUpload}
+  />
+  {formData.image_url && (
+    <img src={formData.image_url} alt="Product" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+  )}
+</div>
             <br />
 
             Description:

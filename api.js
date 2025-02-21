@@ -124,3 +124,11 @@ export const login = (email, password) => {
     })
 }
 
+export const uploadPicture = (id, formData) => {
+    return axios.post(`${API}/upload-image/${id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+  };
+  
