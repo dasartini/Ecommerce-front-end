@@ -103,7 +103,6 @@ export const checkout = (customerData, currentBasket, totalPrice) =>{
         transaction_id: customerData.purchase_units[0].payments.captures[0].id
     })
     .then((data)=>{
-        console.log(data)
         return data.data
     }) .catch((err)=>{
         console.error("there was an error:", err)
@@ -115,11 +114,8 @@ export const login = (email, password) => {
         password,
       })
       .then((data)=>{
-        console.log("success")
-        console.log(data.data.user.name)
         return data.data
       }).catch((err)=>{
-        console.log("fail", err)
         console.error("there was an error:", err)
     })
 }
@@ -129,6 +125,12 @@ export const uploadPicture = (id, formData) => {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
-    });
+    })
+    .then((data)=>{
+        return data
+      }).catch((err)=>{
+        console.error("there was an error:", err)
+    })
+
   };
   
