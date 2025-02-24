@@ -8,6 +8,7 @@ function ModifyProducts() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null); 
+  const [visible, setVisible] = useState(null)
   const { id } = useParams();
 
   const [formData, setFormData] = useState({
@@ -111,6 +112,23 @@ function ModifyProducts() {
     }
   };
 
+  const handleCheckboxChange = (event) => {
+    if(visible){setVisible(false)}
+    else if(!visible){setVisible(true)}
+    setFormData(prevData => ({
+      ...prevData,
+      isCoffee: event.target.checked
+    }));
+  };
+
+  const handleDetailsChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      details: { ...formData.details, [name]: value },
+    });
+  };
+
   if (loading) return <div>Loading product...</div>;
 
   return (
@@ -157,6 +175,51 @@ function ModifyProducts() {
               ))}
             </select>
             <br />
+            Is this a coffee?
+            <input
+              type="checkbox"
+              defaultChecked={product.iscoffee}
+              onChange={handleCheckboxChange} 
+            />
+            <br />
+                {!visible&& 
+              (<>
+                Coffee Details:<br />
+            Altitude:
+            <input
+              type="text"
+              name="Altitude"
+              onChange={handleDetailsChange}
+              value={formData.details.Altitude}
+            />
+            <br />
+
+            Region:
+            <input
+              type="text"
+              name="Region"
+              onChange={handleDetailsChange}
+              value={formData.details.Region}
+            />
+            <br />
+
+            Variety:
+            <input
+              type="text"
+              name="Variety"
+              onChange={handleDetailsChange}
+              value={formData.details.Variety}
+            />
+            <br />
+
+            Flavour notes:
+            <input
+              type="text"
+              name="Flavour notes"
+              onChange={handleDetailsChange}
+              value={formData.details["Flavour notes"]}
+            />
+            <br /></>)}
 
             <button className="addToCartButton" onClick={commitChanges}>
               Commit Changes
