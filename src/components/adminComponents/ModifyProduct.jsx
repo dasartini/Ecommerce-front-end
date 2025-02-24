@@ -33,7 +33,7 @@ function ModifyProducts() {
         setLoading(true);
         const productData = await getProductById(id);
         const categoryData = await getCategories();
-
+        console.log(productData)
         setProduct(productData);
         setCategories(categoryData);
 
