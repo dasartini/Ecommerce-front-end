@@ -68,6 +68,8 @@ export default function Basket() {
 
               <button onClick={(()=>{setCustomerData([])})}>clear customer</button>
               <button onClick={()=>{console.log(customerData)}}>log customer </button>
+              <button onClick={()=>{console.log(totalPrice, 23)}}>log price </button>
+
               <button className="clear-basket-btn" onClick={clearBasket}>
                 Clear Basket
               </button>

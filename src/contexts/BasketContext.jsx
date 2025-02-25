@@ -14,9 +14,9 @@ export const BasketProvider = ({ children }) => {
   });
 
   const totalPrice = currentBasket.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+    (sum, item) => sum + (item.price * item.quantity),
     0
-  );
+  ).toFixed(2);
 
   useEffect(() => {
     localStorage.setItem("basket", JSON.stringify(currentBasket));
