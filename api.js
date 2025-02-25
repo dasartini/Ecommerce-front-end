@@ -37,20 +37,19 @@ export const createCategory = (name)=>{
 
 }
 
-export const createProduct = (productData) =>{
-    return axios.post(`${API}/products`,{
-        name: productData.name,
-        price: productData.price,
-        stock: productData.stock,
-        image_url: productData.image_url,
-        description: productData.description,
-        category_id: productData.category_id,
-    }) .then((data)=>{
-        return data.data
-    }).catch((err)=>{
-        console.error("there was an error:", err)
+export const createProduct = (productData) => {
+  return axios
+    .post(`${API}/products`, productData, {
+      headers: {
+        "Content-Type": "multipart/form-data", 
+      },
     })
-}
+    .then((response) => response.data)
+    .catch((err) => {
+      console.error("There was an error:", err);
+    });
+};
+
 export const updateProduct = (id, productData)=>{
     return axios.put(`${API}/products/${id}`,{
         name: productData.name,
