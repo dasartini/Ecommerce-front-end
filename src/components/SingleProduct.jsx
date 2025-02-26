@@ -18,7 +18,6 @@ export default function SingleProduct() {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log(currentBasket);
     setLoading(true);
     getProductById(id)
       .then((data) => {

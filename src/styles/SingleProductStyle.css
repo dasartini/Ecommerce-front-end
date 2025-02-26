@@ -10,21 +10,11 @@ position: relative;
 .productCard{
   margin-top: 6rem;
   margin-bottom: 1rem;
-    /* padding: 2rem;
-    background-color:#180D0D ;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 5rem; */
-    /* display: flex;
-  flex-direction: row; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 3rem;
   background-color:#180D0D ;
   color:#F43016;
-  /* align-items: center; */
 
 }
 .productCharact{

@@ -1,3 +1,4 @@
+
 .ordersGrid {
     display: flex;
     flex-direction: column;
@@ -15,7 +16,9 @@
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   }
-
+  .orderItem:hover {
+    transform: scale(1.02);
+  }
   .orderDetails {
     display: flex;
     flex-direction: column;
@@ -27,6 +30,23 @@
     color: #2c3e50;
   }
 
+  .orderItems {
+    margin-top: 1rem;
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
   @media (max-width: 600px) {
     .orderItem {
       flex-direction: column;
