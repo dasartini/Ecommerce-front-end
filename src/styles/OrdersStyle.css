@@ -1,0 +1,41 @@
+.ordersGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+    margin: auto;
+  }
+
+  .orderItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e2c8c8;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .orderDetails {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .orderTotal {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+
+  @media (max-width: 600px) {
+    .orderItem {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+    }
+
+    .orderTotal {
+      margin-top: 0.5rem;
+      font-size: 1.3rem;
+    }
+  }

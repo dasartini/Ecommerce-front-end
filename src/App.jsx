@@ -12,7 +12,7 @@ import Login from './components/LogIn'
 import { AuthProvider } from './contexts/AuthContext'
 import AdminPage from './components/AdminPage'
 import PrivateRoute from './protect/PrivateRoute'
-import AddStock from "./components/adminComponents/AddStock"
+import AllOrders from "./components/adminComponents/AllOrders"
 import CreateProduct from "./components/adminComponents/CreateProduct"
 import ModifyProduct from "./components/adminComponents/ModifyProduct"
 import CreateCategory from "./components/adminComponents/CreateCategory"
@@ -39,10 +39,9 @@ function App() {
     }
   >
     <Route path="create-product" element={<CreateProduct />} />
-    <Route path="add-stock" element={<AddStock />} />
+    <Route path="orders" element={<AllOrders />} />
     <Route path="create-category/modify-products/:id" element={<ModifyProduct />} />
     <Route path="create-category" element={<CreateCategory />} />
-
 
   </Route>
   <Route path="/shop" element={<AllProducts />} />
