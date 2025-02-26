@@ -9,12 +9,10 @@ function AdminPage() {
   return (
     <AdminStyle>
       <div className="mainContainerAdmin">
-        {/* Menu Icon for Responsive Mode */}
         <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X /> : <Menu />}
         </div>
 
-        {/* Navigation List */}
         <div className={`listCont ${isMenuOpen ? "show-menu" : ""}`}>
           <p>Controls:</p>
           <nav>
@@ -26,7 +24,7 @@ function AdminPage() {
                 <NavLink to="create-product">Create Products</NavLink>
               </li>
               <li>
-                <NavLink to="add-stock">Add Stock to an Existing Product</NavLink>
+                <NavLink to="orders">Orders</NavLink>
               </li>
               <li>
                 <NavLink to="modify-products">Modify Existing Products</NavLink>

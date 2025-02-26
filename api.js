@@ -133,3 +133,30 @@ export const uploadPicture = (id, formData) => {
 
   };
   
+
+  export const getAllOrders = () =>{
+
+    return axios.get(`${API}/orders`)
+    .then((data)=>{
+       return data.data
+    })
+    .catch((err)=>{
+        console.error(err)
+    })
+
+
+}
+
+
+export const getOrderByID = (id) =>{
+
+    return axios.get(`${API}/orders/${id}`)
+    .then((data)=>{
+       return data.data
+    })
+    .catch((err)=>{
+        console.error(err)
+    })
+
+
+}
