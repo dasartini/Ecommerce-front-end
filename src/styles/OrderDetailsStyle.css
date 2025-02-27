@@ -1,4 +1,6 @@
  .OrderDetailsStyle{
+  display: flex;
+  flex-direction: column;
 
   h4 {
     font-size: 1.2rem;
@@ -9,6 +11,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+
   }
 
   li {
@@ -19,10 +22,11 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
+    width: 97%
   }
  }
 
-  .product-image {
+  .product-imageOrders {
     width: 80px;
     height: 80px;
     margin-right: 1rem;
@@ -35,7 +39,7 @@
     }
   }
 
-  .product-details {
+  .product-detailsOrders {
     flex: 1;
 
     p {
@@ -48,3 +52,20 @@
       color: #333;
     }
   }
+@media(max-width: 768px){
+
+ .OrderDetailsStyle{
+  h4{
+    font-size: 1rem;
+  }
+  p{
+    font-size: 0.8rem;
+  }
+  li {
+    max-width: 90%;
+  }
+ }
+   
+
+ 
+}

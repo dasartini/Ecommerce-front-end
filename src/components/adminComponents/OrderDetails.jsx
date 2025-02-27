@@ -47,13 +47,12 @@ function OrderDetails({ orderId }) {
       <p>Date: {new Date(orderDetails.created_at).toLocaleDateString()}</p>
 
       <h5>Items:</h5>
-      <ul>
         {products.map((product) => (
           <li key={product.product_id}>
-            <div className="product-image">
+            <div className="product-imageOrders">
               <img src={product.image_url} alt={product.product_name} />
             </div>
-            <div className="product-details">
+            <div className="product-detailsOrders">
               <p>
                 <strong>{product.product_name}</strong>
               </p>
@@ -64,7 +63,7 @@ function OrderDetails({ orderId }) {
             </div>
           </li>
         ))}
-      </ul>
+      
     </OrderDetailsStyle>
   );
 }

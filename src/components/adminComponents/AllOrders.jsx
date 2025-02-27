@@ -66,7 +66,6 @@ function AllOrders() {
                   <h3>Customer: {order.customer_name}</h3>
                   <span
                     onClick={() => handleExpand(order.id)} 
-                    style={{ justifyContent: "center", alignItems: "center" }}
                   >
                     more
                   </span>
@@ -77,7 +76,6 @@ function AllOrders() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.1 }}
-                        className="mt-2 text-gray-700"
                       >
                         <OrderDetails orderId={order.id} />
                       </motion.p>
