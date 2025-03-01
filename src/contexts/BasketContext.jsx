@@ -13,8 +13,15 @@ export const BasketProvider = ({ children }) => {
     return savedQuantity ? parseInt(savedQuantity) : 0;
   });
 
+  const sizeMultiplier = {
+    "250g": 1,
+    "500g": 2,
+    "1kg": 4,
+  };
+
+
   const totalPrice = currentBasket.reduce(
-    (sum, item) => sum + (item.price * item.quantity),
+    (sum, item) => sum + (item.price * sizeMultiplier[item.size] * item.quantity),
     0
   ).toFixed(2);
 

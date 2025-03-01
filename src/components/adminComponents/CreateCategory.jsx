@@ -57,7 +57,6 @@ useEffect(() => {
         setProducts(productData);
         setFilteredProducts(productData);
         setCategories(categoryData);
-        console.log(categories)
       } catch (err) {
         setError(err.message);
       } finally {

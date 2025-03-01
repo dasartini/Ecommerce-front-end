@@ -33,7 +33,6 @@ function ModifyProducts() {
         setLoading(true);
         const productData = await getProductById(id);
         const categoryData = await getCategories();
-        console.log(productData)
         setProduct(productData);
         setCategories(categoryData);
 
@@ -93,7 +92,6 @@ function ModifyProducts() {
         imageFormData.append("image", selectedImage);
 
         const uploadResponse = await uploadPicture(id, imageFormData);
-        console.log("Upload response:", uploadResponse);
 
         if (uploadResponse.data && uploadResponse.data.updatedRecord && uploadResponse.data.updatedRecord.image_url) {
           finalImageUrl = uploadResponse.data.updatedRecord.image_url;

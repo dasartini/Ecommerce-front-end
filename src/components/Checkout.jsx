@@ -37,6 +37,7 @@ export default function Checkout() {
     const onApproveOrder = async (data, actions) => {
         try {
           const details = await actions.order.capture(); 
+          console.log(details)
           setCustomerData(details);
     
           const response = await checkout(

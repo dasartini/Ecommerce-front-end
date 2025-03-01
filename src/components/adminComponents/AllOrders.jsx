@@ -14,7 +14,6 @@ function AllOrders() {
     async function fetchData() {
       try {
         const allOrders = await getAllOrders();
-        console.log(allOrders);
         setOrders(allOrders);
       } catch (err) {
         setError(err.message);
@@ -64,23 +63,21 @@ function AllOrders() {
                   <h1>Order ID: {order.id}</h1>
                   <h3>Date: {formatDate(order.created_at)}</h3>
                   <h3>Customer: {order.customer_name}</h3>
-                  <span
+                  <span style={{color:"blue"}}
                     onClick={() => handleExpand(order.id)} 
-                    style={{ justifyContent: "center", alignItems: "center" }}
                   >
-                    more
+                  Details
                   </span>
                   <AnimatePresence>
                     {expanded === order.id && ( 
-                      <motion.p
+                      <motion.div
                         initial={{ opacity: 0, y: -30 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.1 }}
-                        className="mt-2 text-gray-700"
                       >
                         <OrderDetails orderId={order.id} />
-                      </motion.p>
+                      </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
