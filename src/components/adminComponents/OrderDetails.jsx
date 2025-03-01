@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getOrderByID, getProductById } from "../../../api"; 
-import OrderDetailsStyle from "../../styles/OrderDetailsStyle"; 
+import { getOrderByID, getProductById } from "../../../api";
+import OrderDetailsStyle from "../../styles/OrderDetailsStyle";
 
 function OrderDetails({ orderId }) {
   const [orderDetails, setOrderDetails] = useState(null);
@@ -11,16 +11,13 @@ function OrderDetails({ orderId }) {
   useEffect(() => {
     async function fetchOrderAndProductDetails() {
       try {
-
         const order = await getOrderByID(orderId);
-        console.log("Order Details:", order);
         setOrderDetails(order);
-
 
         const productDetails = await Promise.all(
           order.items.map(async (item) => {
             const product = await getProductById(item.product_id);
-            return { ...item, image_url: product.image_url }; 
+            return { ...item, image_url: product.image_url };
           })
         );
         setProducts(productDetails);
@@ -42,20 +39,21 @@ function OrderDetails({ orderId }) {
   return (
     <OrderDetailsStyle>
       <h4>Order Details:</h4>
-      <p>Order ID: {orderDetails.id}</p>
-      <p>Total Price: £{orderDetails.total_price.toFixed(2)}</p>
-      <p>Date: {new Date(orderDetails.created_at).toLocaleDateString()}</p>
+      <div>
+        <p><strong>Order ID:</strong> {orderDetails.id}</p>
+        <p><strong>Total Price:</strong> £{orderDetails.total_price.toFixed(2)}</p>
+        <p><strong>Date:</strong> {new Date(orderDetails.created_at).toLocaleDateString()}</p>
+      </div>
 
-      <h5>Items:</h5>
+      {/* Wrap list items inside a <ul> */}
+      <ul>
         {products.map((product) => (
           <li key={product.product_id}>
             <div className="product-imageOrders">
               <img src={product.image_url} alt={product.product_name} />
             </div>
             <div className="product-detailsOrders">
-              <p>
-                <strong>{product.product_name}</strong>
-              </p>
+              <strong>{product.product_name}</strong>
               <p>Quantity: {product.quantity}</p>
               <p>Price: £{product.price.toFixed(2)}</p>
               <p>Grind: {product.grind}</p>
@@ -63,7 +61,7 @@ function OrderDetails({ orderId }) {
             </div>
           </li>
         ))}
-      
+      </ul>
     </OrderDetailsStyle>
   );
 }

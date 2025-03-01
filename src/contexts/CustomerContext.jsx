@@ -3,7 +3,8 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 const CustomerDataContext = createContext();
 
 export const CustomerDataProvider = ({ children }) => {
-  const [customerData, setCustomerData] = useState([]);
+  const [customerData, setCustomerData] = useState({
+  });
 
 
 
