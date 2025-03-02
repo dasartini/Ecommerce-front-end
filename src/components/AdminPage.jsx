@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, Outlet } from "react-router"; // Corrected import
+import { NavLink, Outlet } from "react-router"; 
 import AdminStyle from "../styles/AdminStyle";
 import { X, Menu } from "lucide-react";
 

@@ -17,7 +17,6 @@ function OrderDetails({ orderId }) {
 
         setOrderDetails(order);
         setCustomerDetails(customer)
-        console.log(customer)
         const productDetails = await Promise.all(
           order.items.map(async (item) => {
             const product = await getProductById(item.product_id);

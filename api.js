@@ -161,14 +161,11 @@ export const getOrderByID = (id) =>{
 
 }
 export const saveCustomerDetails = (customerData , orderId) =>{
-    console.log("THIS IS SUPPOSED TO BE CUSTOMER DATA",customerData)
-    console.log("THIS IS THE ORDER ID:", orderId)
     return axios.post(`${API}/customer-details/${orderId}`,customerData )
     .then((data)=>{
         return data.data
     })
     .catch((err)=>{
-        console.log(err)
         console.error(err)
     })
     
