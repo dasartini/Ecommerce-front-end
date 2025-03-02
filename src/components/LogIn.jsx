@@ -14,7 +14,8 @@ const Login = () => {
         
         setAuthToken(data)
         console.log("logged in as" , data.user.name)
-    }).catch((err)=>{console.log(err)})
+    }).catch((err)=>{
+      console.error(err)})
   };
 
   return (

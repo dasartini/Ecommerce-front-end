@@ -14,7 +14,6 @@ export default function Basket() {
     setQuantity(0);
   };
 
-  // Function to correctly calculate the price for each line item
   const calculateLinePrice = (item) => {
     const sizeMultiplier = {
       "250g": 1,
@@ -37,7 +36,6 @@ export default function Basket() {
   const navigate = useNavigate();
   const handleClick = () => {
     setVisible(true);
-    console.log(currentBasket);
   };
 
   return (

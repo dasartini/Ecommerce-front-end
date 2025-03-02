@@ -24,18 +24,16 @@ export default function SingleProduct() {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   }, [id]);
 
-  // Size multipliers for stock & price
   const sizeMultiplier = {
     "250g": 1,
     "500g": 2,
     "1kg": 4,
   };
 
-  // Maximum quantity allowed based on stock
   const getMaxQuantity = () => {
     return product ? Math.floor(product.stock / sizeMultiplier[selectedSize]) : 1;
   };
@@ -50,7 +48,7 @@ export default function SingleProduct() {
 
   const handleSizeChange = (size) => {
     setSelectedSize(size);
-    setProductQuantity(1); // Reset quantity when changing size
+    setProductQuantity(1); 
   };
 
   const addToBasket = () => {
