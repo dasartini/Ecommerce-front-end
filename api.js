@@ -175,7 +175,7 @@ export const saveCustomerDetails = (customerData , orderId) =>{
 }
 export const getCustomerDetailsByID = (order_id) =>{
 
-    return axios.get(`${API}/orders/${order_id}`)
+    return axios.get(`${API}/customer-details/${order_id}`)
     .then((data)=>{
        return data.data
     })
