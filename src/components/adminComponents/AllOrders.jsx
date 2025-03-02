@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllOrders } from "../../../api";
+import { getAllOrders} from "../../../api";
 import OrdersStyle from "../../styles/OrdersStyle";
 import { motion, AnimatePresence } from "framer-motion";
 import OrderDetails from "./OrderDetails";
