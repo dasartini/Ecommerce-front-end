@@ -2,7 +2,7 @@ import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
 import { useState } from "react";
 import { useBasketContext } from "../contexts/BasketContext";
 import { useCustomerDataContext } from "../contexts/CustomerContext";
-import { checkout } from "../../api";
+import { checkout, saveCustomerDetails } from "../../api";
 
 
 export default function Checkout() {
@@ -35,27 +35,43 @@ export default function Checkout() {
     }
 
     const onApproveOrder = async (data, actions) => {
-        try {
-          const details = await actions.order.capture(); 
-          console.log(details)
+      try {
+          const details = await actions.order.capture();
           setCustomerData(details);
-    
-          const response = await checkout(
-            details,
-            currentBasket,
-            totalPrice
-          );
-    
-          if (response) {
-            alert("Order placed successfully!");
-            setCurrentBasket([]);
-            setQuantity(0);
+  
+          const response = await checkout(details, currentBasket, totalPrice);
+  
+          if (response && response.orderId) {
+              const { 
+                  purchase_units: [{ shipping }], 
+                  payer: { email_address } 
+              } = details;
+  
+              const customerDetails = {
+                  order_id: response.orderId, 
+                  address_line_1: shipping?.address?.address_line_1 || "N/A",
+                  address_line_2: shipping?.address?.address_line_2 || null,
+                  admin_area_2: shipping?.address?.admin_area_2 || null,
+                  admin_area_1: shipping?.address?.admin_area_1 || null,
+                  postal_code: shipping?.address?.postal_code || "N/A",
+                  email: email_address || "N/A",
+              };
+  
+              await saveCustomerDetails(customerDetails, response.orderId);
+              
+  
+              setCurrentBasket([]);
+              setQuantity(0);
+              setCustomerData({})
+          } else {
+              alert("Failed to process order. Please try again.");
           }
-        } catch (err) {
+      } catch (err) {
           console.error("Error processing the payment or checkout:", err);
           alert("Something went wrong during checkout!");
-        }
-      };
+      }
+  };
+  
 
     return (
         <div className="checkout">

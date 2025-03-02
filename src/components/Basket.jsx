@@ -6,7 +6,6 @@ import CheckoutForm from "./CheckoutForm";
 import { useCustomerDataContext } from "../contexts/CustomerContext";
 
 export default function Basket() {
-  const { customerData, setCustomerData } = useCustomerDataContext();
   const [visible, setVisible] = useState(false);
   const { setQuantity, currentBasket, setCurrentBasket, totalPrice } = useBasketContext();
 
