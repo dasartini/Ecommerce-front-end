@@ -154,13 +154,12 @@ button{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
     background-image: url('../assets//vibrantDesign3.jpg');
      background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
      background-attachment: fixed;
-     width: 100%;
-    min-height: 70vh;
+    min-height: 700px;
+   z-index: 1;
     h1{
         color: #D9B68C;
     }
