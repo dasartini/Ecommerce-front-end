@@ -1,13 +1,6 @@
 .GridStyle {
   position: relative;
-  background-image: url('../assets//vibrantDesign3.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  width: 100%;
-  min-height: 100vh;
-  overflow-y: auto;
-  
+ background-color: #180D0D;
 }
 
 .product-grid {
@@ -158,3 +151,4 @@ gap: 5px;
     padding: 10px;
   }
 }
+

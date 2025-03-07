@@ -150,7 +150,7 @@ export default function SingleProduct() {
 
         <motion.div animate={{ y: isVisible ? -20 : 0 }} transition={{ duration: 0.5 }} className="productDescription p-4">
           <h2>Description:</h2>
-          <p>{product.description}</p>
+          <p>{product.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet minima ipsum sint, magni veniam illo id molestiae ducimus voluptates dignissimos dolorum quam eius aliquid! Velit earum nam eveniet culpa unde.</p>
 
           <hr style={{ borderTop: "1px solid white", width: "100%" }} />
 
