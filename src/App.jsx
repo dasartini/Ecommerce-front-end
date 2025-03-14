@@ -16,6 +16,7 @@ import AllOrders from "./components/adminComponents/AllOrders"
 import CreateProduct from "./components/adminComponents/CreateProduct"
 import ModifyProduct from "./components/adminComponents/ModifyProduct"
 import CreateCategory from "./components/adminComponents/CreateCategory"
+import Contact from './components/Contact'
 function App() {
 
   return (
@@ -48,6 +49,7 @@ function App() {
   <Route path="/shop/:id" element={<SingleProduct />} />
   <Route path="/basket" element={<Basket />} />
   <Route path="/checkout-form" element={<CheckoutForm />} />
+  <Route path='/contact' element={<Contact />}/>
 </Routes>
     </main>
     </CustomerDataProvider>
