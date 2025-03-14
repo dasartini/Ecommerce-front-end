@@ -1,9 +1,8 @@
-
-.GridStyle{
+.GridStyle {
   position: relative;
-  background-color: #180d0d;
-  width: 100%
+ background-color: #180D0D;
 }
+
 .product-grid {
   
     z-index: -100;
@@ -15,13 +14,14 @@
   }
   
   .product-card {
-    background-color: #F43016;
+    background-color: #4E3B31;
     border: 1px solid#000000;
     border-radius: 12px;
     padding: 16px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
+    
   }
   
   .product-card:hover {
@@ -38,8 +38,8 @@
   .product-title {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #000000;
-  }
+    color: #D9B68C
+    }
   
   .product-description {
     font-size: 0.9rem;
@@ -86,11 +86,12 @@ gap: 5px;
 }
 
   .dropdown {
-    background-color:#F43016;
+    background-color:#4E3B31;
     padding: 8px;
     font-size: 1rem;
     border-radius: 6px;
     border: 1px solid #000000;
+    color: #D9B68C;
   }
 
 
@@ -150,3 +151,4 @@ gap: 5px;
     padding: 10px;
   }
 }
+
