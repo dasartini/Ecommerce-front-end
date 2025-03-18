@@ -55,11 +55,14 @@ export default function HomePage() {
 
   
  {products.map(product => (
+            <Link key={product.id} to={`/shop/${product.id}`}>
+  
             <div key={product.id} className="homeProduct-card">
               <h2>{product.name}</h2>
               <p>from: £{product.price}</p>
               <img src={product.image_url} alt={product.name} />
             </div>
+            </Link>
           ))}
 </div>
  </div>

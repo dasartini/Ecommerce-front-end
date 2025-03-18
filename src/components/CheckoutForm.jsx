@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import FormStyle from "../styles/FormStyle";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Checkout from "./Checkout";
-import { useEffect } from "react";
 
 export default function CheckoutForm() {
 

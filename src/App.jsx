@@ -16,6 +16,7 @@ import AllOrders from "./components/adminComponents/AllOrders"
 import CreateProduct from "./components/adminComponents/CreateProduct"
 import ModifyProduct from "./components/adminComponents/ModifyProduct"
 import CreateCategory from "./components/adminComponents/CreateCategory"
+import Footer from './components/Footer'
 import Contact from './components/Contact'
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
   <Route path="/checkout-form" element={<CheckoutForm />} />
   <Route path='/contact' element={<Contact />}/>
 </Routes>
+<Footer/>
     </main>
     </CustomerDataProvider>
     </BasketProvider>
