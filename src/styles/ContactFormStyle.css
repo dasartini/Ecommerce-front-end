@@ -1,0 +1,224 @@
+.ContactFormStyle{
+    margin: 0;
+  padding: 0;
+  color: #D9B68C;;
+}
+/* .contactPageFirst{
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: row;
+  padding: 2.5rem;
+} */
+.contactPageFirst, .contactPageSecond {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem;
+  gap: 2rem;
+}
+.contactText, .contactTextSecond {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 50%;
+}
+.teroShop {
+  flex: 1;
+  max-width: 50%;
+  height: auto;
+  border-radius: 20px;
+}
+.teroStand{
+  flex: 1;
+  max-width: 30%;
+  border-radius: 20px;
+  margin-top: 5rem;
+}
+
+/* .contactText{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:0.5rem;
+  
+  margin-right: 10rem;
+
+} */
+
+/* .contactPageSecond{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 2.5rem;
+  gap: 2rem;
+
+} */
+
+/* .contactTextSecond{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+} */
+.enquireButton {
+  margin-top: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #DA723C;
+  border: none;
+  height: 2.5rem;
+  width: 10rem;
+  border-radius: 10px;
+  align-self: center; 
+}
+
+.enquireButton:hover {
+  background-color: #F43016;
+}
+
+/* 
+.teroStand{
+  height: 30rem;
+  border-radius: 20px;
+
+}
+.teroShop{
+  height: 22rem;
+  border-radius: 20px;
+} */
+.form-container {
+    display: flex;
+    width: 100%;
+    background-color:#180D0D;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .form-left {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  .form-right {
+    flex: 1;
+  }
+  
+  .form-right img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #D9B68C;
+  }
+  
+  input[type="email"],
+  input[name="sender"],
+  input[name="phoneNumber"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+
+  
+  .attachment-group input[type="file"] {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .submit-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color:#9370DB;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #ff4757;
+  }
+  
+  @media (max-width: 768px) {
+    .form-container {
+      flex-direction: column;
+    }
+  
+    .form-right {
+      display: none; 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contactPageFirst{
+      margin-top: 6rem;
+    }
+    .contactPageFirst, .contactPageSecond {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .contactText, .contactTextSecond {
+      max-width: 100%;
+      align-items: center;
+    }
+  
+    .teroStand, .teroShop {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .loaderMail {
+    height: 20px;
+    aspect-ratio: 2.5;
+    --_g: no-repeat radial-gradient(farthest-side,#5e2385 90%,#ffffff00);
+    background: var(--_g), var(--_g), var(--_g), var(--_g);
+    background-size: 20% 50%;
+    animation: l44 1s infinite linear alternate; 
+  }
+  @keyframes l44 {
+    0%,
+    5%    {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+    12.5% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+    25%   {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 0   ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+    37.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0   ,calc(2*100%/3) 0   ,calc(3*100%/3) 50% }
+    50%   {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 0   ,calc(3*100%/3) 0   }
+    62.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 0   }
+    75%   {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 100%}
+    87.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}
+    95%,
+    100%  {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  }
+  
+  

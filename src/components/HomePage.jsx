@@ -3,6 +3,7 @@ import Design from "./Design"
 import farmer2 from "../assets/farmer.jpg"
 import { useEffect, useState } from "react"
 import { allProducts } from "../../api"
+import { Link } from "react-router"
 export default function HomePage() {
   const[products, setProducts] = useState([])
 
@@ -14,6 +15,9 @@ export default function HomePage() {
     }
     return array.slice(0, count);
   }
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [])
   useEffect(()=>{
     allProducts()
     .then((data)=>{
@@ -41,7 +45,7 @@ export default function HomePage() {
   <div className="thirdContText">
   <h1>Interested in partnering with us?</h1>
   <p>Get tero into your business</p>
-  <button className="homeButton"> More information</button>
+  <Link to={"/contact"}><button className="homeButton"> More information</button></Link>
   </div>
 </div>
 

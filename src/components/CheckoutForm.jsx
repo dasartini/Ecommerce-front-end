@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import FormStyle from "../styles/FormStyle";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Checkout from "./Checkout";
+import { useEffect } from "react";
 
 export default function CheckoutForm() {
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [])
+
   const initialOptions = {
     "client-id":  import.meta.env.VITE_PAYPAL_CLIENT_ID,
     currency: "GBP",

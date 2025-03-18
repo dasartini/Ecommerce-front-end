@@ -8,6 +8,7 @@ export const allProducts = () =>{
        return data.data
     })
     .catch((err)=>{
+        console.log("on error",err)
         console.error(err)
     })
 
@@ -182,3 +183,15 @@ export const getCustomerDetailsByID = (order_id) =>{
 
 
 }
+
+export const sendContactEmail = (data) => {
+    return axios.post(`${API}/contact`, data)
+      .then((response) => {
+        console.log(response)
+        return response.data
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+  
