@@ -1,15 +1,102 @@
 .ContactFormStyle{
     margin: 0;
   padding: 0;
+  color: #D9B68C;;
+}
+/* .contactPageFirst{
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: row;
+  padding: 2.5rem;
+} */
+.contactPageFirst, .contactPageSecond {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem;
+  gap: 2rem;
+}
+.contactText, .contactTextSecond {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 50%;
+}
+.teroShop {
+  flex: 1;
+  max-width: 50%;
+  height: auto;
+  border-radius: 20px;
+}
+.teroStand{
+  flex: 1;
+  max-width: 30%;
+  border-radius: 20px;
+  margin-top: 5rem;
 }
 
+/* .contactText{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:0.5rem;
+  
+  margin-right: 10rem;
+
+} */
+
+/* .contactPageSecond{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 2.5rem;
+  gap: 2rem;
+
+} */
+
+/* .contactTextSecond{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+} */
+.enquireButton {
+  margin-top: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #DA723C;
+  border: none;
+  height: 2.5rem;
+  width: 10rem;
+  border-radius: 10px;
+  align-self: center; 
+}
+
+.enquireButton:hover {
+  background-color: #F43016;
+}
+
+/* 
+.teroStand{
+  height: 30rem;
+  border-radius: 20px;
+
+}
+.teroShop{
+  height: 22rem;
+  border-radius: 20px;
+} */
 .form-container {
     display: flex;
     width: 100%;
-    margin: 50px auto;
-    background-color: #F5F5DC;
+    background-color:#180D0D;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
     overflow: hidden;
   }
   
@@ -24,7 +111,7 @@
   
   .form-right img {
     width: 100%;
-    height: 100%;
+    height: 70%;
     object-fit: cover;
   }
   
@@ -36,7 +123,7 @@
     display: block;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #333;
+    color: #D9B68C;
   }
   
   input[type="email"],
@@ -57,13 +144,7 @@
     resize: none;
   }
   
-  .attachment-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
+
   
   .attachment-group input[type="file"] {
     margin-top: 10px;
@@ -99,7 +180,25 @@
     }
   }
   
+  @media (max-width: 768px) {
+    .contactPageFirst{
+      margin-top: 6rem;
+    }
+    .contactPageFirst, .contactPageSecond {
+      flex-direction: column;
+      text-align: center;
+    }
   
+    .contactText, .contactTextSecond {
+      max-width: 100%;
+      align-items: center;
+    }
+  
+    .teroStand, .teroShop {
+      max-width: 100%;
+      height: auto;
+    }
+  }
   .loaderMail {
     height: 20px;
     aspect-ratio: 2.5;
