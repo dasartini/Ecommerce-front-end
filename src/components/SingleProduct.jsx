@@ -15,7 +15,9 @@ export default function SingleProduct() {
   const { setQuantity, quantity, currentBasket, setCurrentBasket } = useBasketContext();
 
   const { id } = useParams();
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [])
   useEffect(() => {
     setLoading(true);
     getProductById(id)

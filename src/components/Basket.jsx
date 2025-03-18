@@ -8,6 +8,9 @@ import { useCustomerDataContext } from "../contexts/CustomerContext";
 export default function Basket() {
   const [visible, setVisible] = useState(false);
   const { setQuantity, currentBasket, setCurrentBasket, totalPrice } = useBasketContext();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [])
 
   const clearBasket = () => {
     setCurrentBasket([]);

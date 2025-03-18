@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { sendContactEmail } from '../../api';
 import ContactFormStyle from "../styles/ContactFormStyle"
 import stand from "../assets/stand.jpg"
@@ -13,7 +13,9 @@ export default function Contact() {
       sender: '',
       phoneNumber: '',
     });
-
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [])
     const handleChange = (e) => {
       const { name, value } = e.target;
       setFormDataState(prevState => ({

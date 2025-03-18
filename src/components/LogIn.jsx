@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../contexts/AuthContext";
 import LoginStyle from "../styles/LoginStyle";
 import { login } from "../../api";
@@ -8,6 +8,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [])
   const handleSubmit = (e) => {
     e.preventDefault();
     login(email, password).then((data)=>{

@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router"; 
 import AdminStyle from "../styles/AdminStyle";
 import { X, Menu } from "lucide-react";
 
 function AdminPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [])
   return (
     <AdminStyle>
       <div className="mainContainerAdmin">

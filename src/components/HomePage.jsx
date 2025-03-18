@@ -15,6 +15,9 @@ export default function HomePage() {
     }
     return array.slice(0, count);
   }
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [])
   useEffect(()=>{
     allProducts()
     .then((data)=>{
