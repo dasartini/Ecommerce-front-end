@@ -11,7 +11,7 @@
   }
   
   header {
-    background-color: #4E3B31;
+    background-color: #a47864;
     height: 7rem;
     z-index: 100;
     position: fixed;
@@ -43,7 +43,7 @@
     cursor: pointer;
    font-weight: lighter;  
    font-size: small;
-  color: #D9B68C;
+  color: #FFDD44;
 
   }
   
