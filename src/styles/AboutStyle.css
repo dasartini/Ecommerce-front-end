@@ -1,0 +1,165 @@
+.AboutStyle{
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.aboutFirst{
+    min-height: 80vh;
+    background-image: url('../assets/aboutFirst.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -15rem ;
+background-position: fixed;    
+display: flex;
+align-items: center;
+justify-content: center;
+h1{
+    font-weight: 100;
+}
+}
+
+.aboutSecond{
+    color: #D9B68C;
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+gap: 2rem;
+}
+.text-side{
+    padding: 1rem;
+    text-align: justify;
+
+    flex:1;
+    h1{
+        text-align: center;
+    }
+    h1, h3{
+    font-weight: 100;
+
+    }
+    h3{
+        line-height: 2rem;
+    }
+}
+.image-side{
+    flex: 1;
+    text-align: center;
+ img{
+    max-width: 100%;
+    border-radius: 20px;
+    height: auto;
+ }
+}
+.image-side2{
+    flex:1;
+    text-align: center;
+    img {
+       height: 25rem;
+       border-radius: 20px;
+    }
+
+}
+.text-side2{
+    padding: 1rem;
+text-align: justify;
+    flex:1;
+h2{
+
+    text-align: center;
+}
+    h1, h3, h1{
+    font-weight: 100;
+
+    }
+    h3{
+        line-height: 2rem;
+    }
+}
+.aboutThird{
+    min-height: 60vh;
+    background-image: url('../assets/coffee1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -15rem ;
+background-position: fixed;    
+display: flex;
+align-items: center;
+justify-content: center;
+h1{
+   font-weight: 100;
+    font-size: 6rem;
+    font-style: italic;
+}
+}
+.features-container {
+    display: flex;
+    justify-content: space-around;
+    background-color:#3b302b;
+    padding: 20px;
+  }
+  
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #D9B68C;
+    text-align: center;
+    flex: 1;
+  }
+  
+  .icon {
+    background-color: transparent;
+
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+    img{
+        height: 2rem;
+    }
+  }
+  
+  .feature p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+
+  }
+  
+@media (max-width: 768px) {
+    .aboutFirst{
+        min-height: 80vh;
+        background-position-y:0rem ;
+        text-align: center;
+        h1{
+        font-size: 1.8rem;
+        }
+    }
+    .aboutSecond{
+        flex-direction: column;
+    }
+    .aboutThird{
+        background-position-y:0rem ;
+        h1{
+            font-size: 3rem;
+            }
+    }
+    .features-container {
+        flex-direction: column;
+      }
+      
+      .feature {
+        margin-bottom: 20px;
+      }
+  }
+  

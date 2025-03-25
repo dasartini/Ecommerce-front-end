@@ -19,7 +19,7 @@ export default function Header() {
               <Link to="/shop">
                 <p>Shop</p>
               </Link>
-             <Link to={"/"}> <p>About</p></Link>
+             <Link to={"/about"}> <p>About</p></Link>
              <Link to={"/contact"}>
               <p>Contact</p></Link>
              {authToken &&  <Link to={"/admin"}> <p>Admin</p></Link> }
