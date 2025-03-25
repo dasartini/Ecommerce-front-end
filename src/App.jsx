@@ -18,6 +18,7 @@ import ModifyProduct from "./components/adminComponents/ModifyProduct"
 import CreateCategory from "./components/adminComponents/CreateCategory"
 import Footer from './components/Footer'
 import Contact from './components/Contact'
+import About from './components/About'
 function App() {
 
   return (
@@ -46,6 +47,7 @@ function App() {
     <Route path="create-category" element={<CreateCategory />} />
 
   </Route>
+  <Route path='/about' element={<About/>}/>
   <Route path="/shop" element={<AllProducts />} />
   <Route path="/shop/:id" element={<SingleProduct />} />
   <Route path="/basket" element={<Basket />} />

@@ -3,12 +3,6 @@
   padding: 0;
   color: #D9B68C;;
 }
-/* .contactPageFirst{
-  margin-top: 7rem;
-  display: flex;
-  flex-direction: row;
-  padding: 2.5rem;
-} */
 .contactPageFirst, .contactPageSecond {
   display: flex;
   flex-direction: row;
@@ -40,32 +34,7 @@
   margin-top: 5rem;
 }
 
-/* .contactText{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap:0.5rem;
-  
-  margin-right: 10rem;
 
-} */
-
-/* .contactPageSecond{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 1rem;
-  padding: 2.5rem;
-  gap: 2rem;
-
-} */
-
-/* .contactTextSecond{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-} */
 .enquireButton {
   margin-top: 1rem;
   font-weight: bold;
@@ -82,16 +51,6 @@
   background-color: #F43016;
 }
 
-/* 
-.teroStand{
-  height: 30rem;
-  border-radius: 20px;
-
-}
-.teroShop{
-  height: 22rem;
-  border-radius: 20px;
-} */
 .form-container {
     display: flex;
     width: 100%;
