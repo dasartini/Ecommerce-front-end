@@ -57,6 +57,7 @@
     background-color:#180D0D;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+
   }
   
   .form-left {
@@ -65,13 +66,16 @@
   }
   
   .form-right {
+    position: relative;
     flex: 1;
   }
   
   .form-right img {
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
+  height: 36rem;
+  border-radius: 50px;
+    position: absolute;
+    right: 2rem;
+top:1rem   
   }
   
   .form-group {
