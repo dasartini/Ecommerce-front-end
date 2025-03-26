@@ -28,6 +28,7 @@ export default function Checkout() {
                 {
                     amount: {
                         value: totalPrice,
+                        currency_code: currency 
                     },
                 },
             ],
@@ -80,14 +81,25 @@ export default function Checkout() {
                     <select value={currency} onChange={onCurrencyChange}>
                             <option value="USD">💵 USD</option>
                             <option value="EUR">💶 Euro</option>
-                            <option value="EUR">💶 Pounds</option>
-
+                            <option value="GBP">£ Pounds</option>
                     </select>
+                    <div style={{
+                          colorScheme: "none", 
+                          tagline: false
+                    }}>
                     <PayPalButtons 
-                        style={{ layout: "vertical" }}
+                        style={{ 
+                            layout: "vertical",
+                            shape:"pill",
+                            color: "gold",
+                            height: 48,
+                            tagline: false,
+
+                        }}
                         createOrder={(data, actions) => onCreateOrder(data, actions)}
                         onApprove={(data, actions) => onApproveOrder(data, actions)}
                     />
+                    </div>
                 </>
             )}
         </div>
