@@ -5,7 +5,13 @@ import carrito from "../assets/carrito.jpg"
 import store from "../assets/store.svg"
 import farmer from "../assets/farmer.svg"
 import pack from "../assets/pack.svg"
+import { useEffect } from 'react'
+
 function About() {
+
+   useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [])
   return (
     <AboutStyle>
 

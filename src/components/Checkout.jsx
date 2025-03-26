@@ -77,17 +77,26 @@ export default function Checkout() {
         <div className="checkout">
             {isPending ? <p>LOADING...</p> : (
                 <>
-                    <select value={currency} onChange={onCurrencyChange}>
+                    {/* <select value={currency} onChange={onCurrencyChange}>
                             <option value="USD">💵 USD</option>
                             <option value="EUR">💶 Euro</option>
                             <option value="EUR">💶 Pounds</option>
 
-                    </select>
+                    </select> */}
+                    <div style={{
+                          colorScheme: "none", 
+                          tagline: false
+                    }}>
                     <PayPalButtons 
-                        style={{ layout: "vertical" }}
+                        style={{ 
+                            layout: "vertical",
+                            shape:"pill",
+
+                        }}
                         createOrder={(data, actions) => onCreateOrder(data, actions)}
                         onApprove={(data, actions) => onApproveOrder(data, actions)}
                     />
+                    </div>
                 </>
             )}
         </div>

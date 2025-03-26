@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useBasketContext } from "../contexts/BasketContext";
 import BasketStyle from "../styles/BasketStyle";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import CheckoutForm from "./CheckoutForm";
-import { useCustomerDataContext } from "../contexts/CustomerContext";
+import pack from "../assets/pack.svg"
 
 export default function Basket() {
   const [visible, setVisible] = useState(false);
@@ -46,7 +46,13 @@ export default function Basket() {
       <div className="basket-container">
         <h2>Your Basket</h2>
         {currentBasket.length === 0 ? (
+
+          <div className="emptyBasket"> 
           <p>Your basket is empty.</p>
+          <p>Delicious coffee is awaiting for you...</p>
+
+         <Link to={'/shop'}> <img style={{height:"5rem", marginTop: "1rem", marginBottom:"1rem"}} src={pack}/></Link>
+          </div>
         ) : (
           <>
             <ul className="basket-list">
@@ -82,7 +88,9 @@ export default function Basket() {
               <button className="clear-basket-btn" onClick={handleClick}>
                 Pay
               </button>
+              <div className="paypalCont">
               {visible && <CheckoutForm />}
+              </div>
             </div>
           </>
         )}

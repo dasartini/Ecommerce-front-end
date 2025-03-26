@@ -1,10 +1,16 @@
-
-
+.BasketStyle{
+  min-height: 80vh;
+}
+.emptyBasket{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 .basket-container {
-  
-    max-width: 600px;
+    color: #D9B68C ;
+    max-width: 800px;
     margin: 10rem auto;
-    background-color: #c7ae83;
+    background-color: #1a1713;
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -39,11 +45,16 @@
   .divider {
     border: none;
     height: 1px;
-    background-color: #ddd;
+    background-color: #D9B68C ;
     margin: 1.5rem 0;
   }
 
+  .paypalCont{
+  margin-left: 2rem;
+  
+  }
   .basket-total {
+    
     text-align: right;
     font-size: 1.2rem;
     font-weight: bold;
