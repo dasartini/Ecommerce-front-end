@@ -28,6 +28,7 @@ export default function Checkout() {
                 {
                     amount: {
                         value: totalPrice,
+                        currency_code: currency 
                     },
                 },
             ],
@@ -77,12 +78,11 @@ export default function Checkout() {
         <div className="checkout">
             {isPending ? <p>LOADING...</p> : (
                 <>
-                    {/* <select value={currency} onChange={onCurrencyChange}>
+                    <select value={currency} onChange={onCurrencyChange}>
                             <option value="USD">💵 USD</option>
                             <option value="EUR">💶 Euro</option>
-                            <option value="EUR">💶 Pounds</option>
-
-                    </select> */}
+                            <option value="GBP">£ Pounds</option>
+                    </select>
                     <div style={{
                           colorScheme: "none", 
                           tagline: false
@@ -91,6 +91,9 @@ export default function Checkout() {
                         style={{ 
                             layout: "vertical",
                             shape:"pill",
+                            color: "gold",
+                            height: 48,
+                            tagline: false,
 
                         }}
                         createOrder={(data, actions) => onCreateOrder(data, actions)}
