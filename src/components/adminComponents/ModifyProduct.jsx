@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { getProductById, getCategories, updateProduct, uploadPicture } from "../../../api";
+import { getProductById, getCategories, updateProduct, uploadPicture, deleteProduct } from "../../../api";
 import { useParams } from "react-router";
 import SingleProductStyle from "../../styles/SingleProductStyle";
+import { useNavigate } from 'react-router';
+
 
 function ModifyProducts() {
+  const [danger, setDanger] = useState(false)
   const [product, setProduct] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null); 
   const [visible, setVisible] = useState(null)
   const { id } = useParams();
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -109,6 +112,27 @@ function ModifyProducts() {
       alert("Failed to update the product.");
     }
   };
+ const handleDelete = ()=>{
+    const confirmation = window.confirm(
+      "You are about to delete this product, this action cannot be undone, do you want to proceed?"
+    );
+
+    if (!confirmation) return 
+    else{
+      deleteProduct(id)
+     .then(()=>{
+      alert("Product deleted!");
+     }) 
+     .then(()=>{
+      navigate('/admin/create-category')
+     })
+     .catch((err)=>{
+      console.error("Error updating product", err);
+      alert("Failed to update the product.");
+     })
+    }
+
+  }
 
   const handleCheckboxChange = (event) => {
     if(visible){setVisible(false)}
@@ -222,6 +246,13 @@ function ModifyProducts() {
             <button className="addToCartButton" onClick={commitChanges}>
               Commit Changes
             </button>
+
+              <div className="dangerButtonCont">
+                {!danger ? 
+                <span style={{cursor:"pointer"}} onClick={()=>setDanger(true)} >DANGER ZONE</span> :
+                <button className="dangerButton" onClick={handleDelete}> DELETE </button>  }
+           
+            </div>
           </form>
         </div>
       </div>

@@ -101,6 +101,22 @@ min-width: 50%
   .grindOption:hover {
     background-color: #1c252e;
   }
+
+  .dangerButtonCont{
+    position: absolute;
+    right: 1rem;
+    bottom: 3rem;
+    color: red;
+  }
+  .dangerButton{
+    height: 50px;
+    width: 6rem;
+    color: #fff;
+    background-color: red;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
   @media (max-width: 768px){
 
     .productCard{
