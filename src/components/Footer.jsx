@@ -3,6 +3,7 @@ import FooterStyle from "../styles/FooterStyle";
 import { Link } from "react-router";
 import logo from "../assets/logo2.png"
 const Footer = () => {
+  
   return (
     <FooterStyle>
     <footer className="footer-container">
